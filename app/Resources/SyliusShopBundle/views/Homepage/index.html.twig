@@ -1,8 +1,17 @@
-{% extends '@SyliusShop/layout.html.twig' %}
+{% extends 'SyliusShopBundle::/layout.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/events.css') }}">
+{% endblock %}
 
 {% block content %}
-<h2 class="ui horizontal section divider header">
-    {{ 'sylius.ui.latest_products'|trans }}
-</h2>
-{{ render(url('sylius_shop_partial_product_index_latest', {'count': 4, 'template': '@SyliusShop/Product/_simpleList.html.twig'})) }}
+    <!-- CAROUSEL , REQUETE A MODIFIER SELON PRECOMMANDE REDUCTION EVENT -->
+{{ render(url('sylius_shop_partial_product_index_latest', {'count': 3, 'template': 'SyliusShopBundle::/Product/_homeCarousel.html.twig'})) }}
+{{ render(url('sylius_shop_partial_product_index_latest', {'count': 9999, 'template': 'SyliusShopBundle::/Product/_homeBooks.html.twig'})) }}
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('js/carousel.js') }}"></script>
 {% endblock %}
