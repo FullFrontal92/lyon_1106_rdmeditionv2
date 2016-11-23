@@ -1,3 +1,6 @@
+
+<!-- CAROUSEL on HomePage -->
+
 <div id="carousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -8,27 +11,25 @@
     <div class="carousel-inner" role="listbox">
         {% for product in products %}
                 <!-- Wrapper for slides -->
-
-                    <div class="item row">
-                        <div class="col-xs-4">
-                            <div class="img-container">
-                                {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
-                            </div>
-                        </div>
-                        <div class="col-xs-8">
-                            <div class="title-container">
-                                <p>
-                                    <span class="quote">"</span>
-                                    {{ product.name }}
-                                    <span class="quote">"</span>
-                                    <span class="carousel-know-more">
-                                <a href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}">En savoir +</a>
-                            </span>
-                                </p>
-                            </div>
-                        </div>
+            <div class="item row">
+                <div class="col-xs-4">
+                    <div class="img-container">
+                        {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
                     </div>
-
+                </div>
+                <div class="col-xs-8">
+                    <div class="title-container">
+                        <p>
+                            <span class="quote">"</span>
+                            {{ product.name }}
+                            <span class="quote">"</span>
+                            <span class="carousel-know-more">
+                        <a href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}">En savoir +</a>
+                    </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
     </div>
     <!-- Controls -->
