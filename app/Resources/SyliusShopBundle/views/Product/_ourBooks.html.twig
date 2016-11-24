@@ -1,0 +1,33 @@
+
+    <div class="container">
+        <table class="bookArray col-md-10 col-md-offset-1">
+            {% for product in products %}
+                <tr class="row">
+                    <td>
+                        <a class="tableImg" href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}">
+                        {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
+                        </a>
+                    </td>
+                    <td>
+                        <div class="celDescri">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-8 bookTitle">
+                                    <h2>{{ product.name }}</h2>
+                                </div>
+
+
+                            </div>
+                            <div class="tableDescri">
+                                <p>{{ product.description[:200]|raw }}...</p><br/>
+                            </div>
+                            <div class="row">
+                                <a class="btn_more" href="{{ path('sylius_shop_product_show', {'slug': product.slug }) }}">En Savoir +
+                                </a>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
