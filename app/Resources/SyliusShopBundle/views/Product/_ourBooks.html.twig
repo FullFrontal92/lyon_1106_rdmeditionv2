@@ -20,6 +20,13 @@
                             <div class="tableDescri">
                                 <p>{{ product.description[:200]|raw }}...</p><br/>
                             </div>
+
+
+                            <div class="priceDescri">
+                                <p>{{ product.price|sylius_price }}</p>
+                            </div>
+
+
                             <div class="row">
                                 <a class="btn_more" href="{{ path('sylius_shop_product_show', {'slug': product.slug }) }}">En Savoir +
                                 </a>

@@ -57,3 +57,9 @@ fos_rest:
         rules:
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                controller: AppBundle\Controller\BookController
