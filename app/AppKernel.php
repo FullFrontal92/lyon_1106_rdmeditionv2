@@ -28,7 +28,7 @@ class AppKernel extends Kernel
             new \Sylius\Bundle\ShopBundle\SyliusShopBundle(),
             new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
             new \FOS\OAuthServerBundle\FOSOAuthServerBundle(),
-
+            new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
         ];
 
         return array_merge(parent::registerBundles(), $bundles);

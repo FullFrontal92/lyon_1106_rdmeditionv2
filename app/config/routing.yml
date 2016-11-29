@@ -13,6 +13,10 @@ sylius_shop_our_books:
     defaults:
         _controller: sylius.controller.product:booksAction
 
+sylius_shop_aboutUs:
+    path: /etre-edite
+    defaults:
+        _controller: sylius.controller.product:aboutUs
 sylius_shop:
     resource: "@SyliusShopBundle/Resources/config/routing.yml"
 
