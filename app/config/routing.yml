@@ -24,16 +24,3 @@ sylius_api:
     resource: "@SyliusApiBundle/Resources/config/routing/main.yml"
     prefix: /api
 
-
-
-            #   path: /nos-livres/{count}
-#   methods: [GET]
-#    defaults:
-#        _controller: sylius.controller.product:booksAction
-#        _sylius:
-#            template: SyliusShopBundle:Product:books.html.twig
-#            repository:
- #               method: findLatestByChannel
-#                arguments:
-#                    - "expr:service('sylius.context.channel').getChannel()"
-#                    - $count
