@@ -8,6 +8,8 @@ sylius_admin_dashboard_redirect:
         route: sylius_admin_dashboard
         permanent: true
 
+# Edited routing
+
 sylius_shop_our_books:
     path: /nos-livres
     defaults:
@@ -17,6 +19,14 @@ sylius_shop_aboutUs:
     path: /etre-edite
     defaults:
         _controller: sylius.controller.product:aboutUs
+
+sylius_shop_generalConditions:
+    path: /mentions-legales
+    defaults:
+        _controller: sylius.controller.product:generalConditions
+
+# Sylius origin routing
+
 sylius_shop:
     resource: "@SyliusShopBundle/Resources/config/routing.yml"
 
