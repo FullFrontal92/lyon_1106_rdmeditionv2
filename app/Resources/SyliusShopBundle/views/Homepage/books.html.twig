@@ -1,0 +1,12 @@
+{% extends 'SyliusShopBundle::/layout.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/ourBooks.css') }}">
+{% endblock %}
+
+{% block content %}
+    <!-- Liste of all Books -->
+    {{ render(url('sylius_shop_partial_product_index_latest', {'count': 9999,'template': 'SyliusShopBundle::/Product/_ourBooks.html.twig'})) }}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

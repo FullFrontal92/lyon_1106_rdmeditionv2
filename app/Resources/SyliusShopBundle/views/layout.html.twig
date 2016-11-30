@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    {% block metatags %}
+    {% endblock %}
+
+    <title>{% block title %}RDM-Editions{% endblock %}</title>
+
+    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/style.css'} %}
+    {% block stylesheets %}
+    {% endblock %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" >
+    <link rel="stylesheet" href="{{ asset('css/master.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+
+</head>
+
+<body>
+{{ render(controller('sylius.controller.shop.currency_switch:renderAction')) }}
+{{ render(controller('sylius.controller.shop.locale_switch:renderAction')) }}
+
+<!-- HEADER -->
+{% include 'SyliusShopBundle::/Homepage/_header.html.twig' %}
+
+{% include '@SyliusUi/_flashes.html.twig' %}
+
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+<!-- SOCIAL LINK BAR -->
+<div class="hidden-xs" id="social_btn">
+    <a href="https://www.facebook.com/RDM.EDITIONS" target="_blank"><img src="{{ asset('img/social/1.png') }}"></a>
+    <a href="https://twitter.com/RhneAlpesPassio" target="_blank"><img src="{{ asset('img/social/2.png') }}"></a>
+    <a href="https://www.linkedin.com/company/rdm-editions-rhone-alpes-passions-medias" target="_blank"><img
+                src="{{ asset('img/social/3.png') }}"></a>
+    <a href="https://plus.google.com/+Rh%C3%B4neAlpesPassionsM%C3%A9dias" target="_blank"><img
+                src="{{ asset('img/social/4.png') }}"></a>
+    <a href="http://www.viadeo.com/profile/0021ncumqpv51d1b" target="_blank"><img src="{{ asset('img/social/5.png') }}"></a>
+    <a href="https://www.instagram.com/rdmeditions/" target="_blank"><img src="{{ asset('img/social/6.png') }}"></a>
+</div>
+<div class="row visible-xs text-nowrap" id="social_btn_xs">
+    <img id="bande" src="{{ asset('img/bande.png') }}"><div id="link">
+        <a id="fb" href="https://www.facebook.com/RDM.EDITIONS" target="_blank"><img
+                    src="{{ asset('img/social/1.png') }}"></a>
+        <a href="https://twitter.com/RhneAlpesPassio" target="_blank"><img src="{{ asset('img/social/2.png') }}"></a>
+        <a href="https://www.linkedin.com/company/rdm-editions-rhone-alpes-passions-medias" target="_blank"><img
+                    src="{{ asset('img/social/3.png') }}"></a>
+        <a href="https://plus.google.com/+Rh%C3%B4neAlpesPassionsM%C3%A9dias" target="_blank"><img
+                    src="{{ asset('img/social/4.png') }}"></a>
+        <a href="http://www.viadeo.com/profile/0021ncumqpv51d1b" target="_blank"><img
+                    src="{{ asset('img/social/5.png') }}"></a>
+        <a href="https://www.instagram.com/rdmeditions/" target="_blank"><img src="{{ asset('img/social/6.png') }}"></a>
+    </div>
+</div>
+
+{% block footer %}
+    {% include 'SyliusShopBundle::/Homepage/_footer.html.twig' %}
+{% endblock %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous">
+</script>
+<script src="{{ asset('js/bande.js') }}"></script>
+<script src="{{ asset('js/navbarResize.js') }}"></script>
+{% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/shop/js/app.js'} %}
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+<a href="#" class="ui fluid image">
+    {% if product.imageByCode('main') is not null %}
+        {% set path = product.imageByCode('main').path|imagine_filter(filter|default('sylius_shop_product_large_thumbnail')) %}
+    {% elseif product.images.first %}
+        {% set path = product.images.first.path|imagine_filter(filter|default('sylius_shop_product_large_thumbnail')) %}
+    {% else %}
+        {% set path = 'http://placehold.it/400x300' %}
+    {% endif %}
+
+    <img src="{{ path }}" id="main-image" alt="" />
+</a>
+{% if product.images|length > 1 %}
+<div class="ui divider"></div>
+<div class="ui small images">
+    {% for image in product.images %}
+    {% set path = image.path is not null ? image.path|imagine_filter('sylius_shop_product_small_thumbnail') : 'http://placehold.it/200x200' %}
+    <a href="#" class="ui image">
+        <img src="{{ path }}" />
+    </a>
+    {% endfor %}
+</div>
+{% endif %}

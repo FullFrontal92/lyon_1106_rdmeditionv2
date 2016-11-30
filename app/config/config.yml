@@ -47,6 +47,12 @@ swiftmailer:
     username: "%mailer_user%"
     password: "%mailer_password%"
 
+ewz_recaptcha:
+    public_key:  6LfsgwoUAAAAANDWpHKY_GtsjsXG7XbDs4eamLSb
+    private_key: 6LfsgwoUAAAAAC3U0zxz8fwq0eBL6vQUG7WXq0Cd
+    # Not needed as "%kernel.default_locale%" is the default value for the locale key
+    locale_key:  %kernel.default_locale%
+
 fos_rest:
     view:
         formats:
@@ -57,3 +63,10 @@ fos_rest:
         rules:
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
+
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                controller: AppBundle\Controller\BookController
