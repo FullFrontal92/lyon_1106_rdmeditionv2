@@ -13,7 +13,7 @@ sylius_admin_dashboard_redirect:
 sylius_shop_our_books:
     path: /nos-livres
     defaults:
-        _controller: sylius.controller.product:booksAction
+        _controller: sylius.controller.product:books
 
 sylius_shop_aboutUs:
     path: /etre-edite

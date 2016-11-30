@@ -18,10 +18,11 @@
                         <h3>Autheur</h3>
                         <p class="text_intro">{{ product.description[:75]|raw }} ...</p>
                         <h4 class="home_price">{{ product.price|sylius_price }}</h4>
+                        {% include 'SyliusShopBundle::Product/Show/CartHomepage/_inventoryHomeBook.html.twig' %}
                     </div>
-                </div>
                 <div class="block_btn ">
                     <a class="btn_more" href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}"> En savoir + </a>
+                </div>
                 </div>
             </div>
         {% endfor %}

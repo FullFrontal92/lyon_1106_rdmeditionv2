@@ -16,12 +16,12 @@ use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as RecaptchaTrue;
 class BookController extends BaseProductController
 {
 
-    public function booksAction()
+    public function books()
     {
         return $this->render('SyliusShopBundle:Homepage:books.html.twig');
     }
 
-    public function generalConditions()
+    public function generalConditionsAction()
     {
         return $this->render('SyliusShopBundle:Homepage:generalConditions.html.twig');
     }
