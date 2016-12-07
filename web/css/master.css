@@ -234,3 +234,8 @@ footer a:hover {
     text-decoration: none;
 }
 
+
+.basketIcon{
+    background-image: url('/web/img/panier.png');
+    height: 30px;
+}

@@ -151,3 +151,8 @@
 .block_cart {
     margin-bottom: -15px;
 }
+
+.basketIcon {
+    background-image: url('/web/img/panier.png');
+    border: 50px solid red;
+}
