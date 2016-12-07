@@ -20,6 +20,6 @@
             <button type="submit" class="ui huge primary fluid icon labeled button"><i class="check icon"></i> {{ 'sylius.ui.place_order'|trans }}</button>
 
             {{ form_row(form._token) }}
-        {{ form_end(form, {'render_rest': true}) }}
+        {{ form_end(form, {'render_rest': false}) }}
     </div>
 {% endblock %}
