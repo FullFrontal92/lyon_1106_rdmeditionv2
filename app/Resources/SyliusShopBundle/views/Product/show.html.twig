@@ -1,40 +1,105 @@
 {% extends '@SyliusShop/layout.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/bookPage.css') }}">
+{% endblock %}
 
 {% block content %}
-{% include '@SyliusShop/Product/Show/_breadcrumb.html.twig' %}
-<div class="ui hidden divider"></div>
-
-<div class="ui two column stackable grid">
-    <div class="column">
-        {% include '@SyliusShop/Product/Show/_images.html.twig' %}
-    </div>
-    <div class="column">
-        {% include '@SyliusShop/Product/Show/_header.html.twig' %}
-        <div class="ui stackable grid">
-            <div class="four wide column">
+    <section class="container bookPresentation">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="img-container">
+                    {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
+                    <!-- Modal book's cover-->
+                    <div class="modal fade" id="coverModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">{{ product.name }}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    {% include '@SyliusShop/Product/Show/_images.html.twig' %}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h1>{{ product.name }}</h1>
+                <p class="description">{{ product.description|raw }}</p>
+            </div>
+            <div class="col-md-offset-4 col-md-4">
                 {% include '@SyliusShop/Product/Show/_price.html.twig' %}
-            </div>
-            <div class="twelve wide right aligned column">
-                <span class="ui sub header">{{ product.code }}</span>
+
+                {% include 'SyliusShopBundle::Product/Show/CartOurBooks/_inventoryOurBooks.html.twig' %}
             </div>
         </div>
-        <div class="ui basic segment">
-            <p>{{ product.shortDescription }}</p>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <table class="info-container">
+                    <tr>
+                        <th><span class="tag">Auteur</span></th>
+                        <td>add book author field on product entity</td>
+                    </tr>
+                    <tr>
+                        <th><span class="tag">Parution</span></th>
+                        <td>{{ product.availableOn|date("d/m/Y", "Europe/Paris") }}</td>
+                    </tr>
+                </table><br />
+            </div>
         </div>
-        {% if product.isConfigurable() and product.getVariantSelectionMethod() == 'match' %}
-            {% include '@SyliusShop/Product/Show/_variantsPrices.html.twig' with { 'variantsPrices': sylius_product_variant_prices(product) } %}
-        {% endif %}
-        {% include '@SyliusShop/Product/Show/_inventory.html.twig' %}
-        <div class="ui hidden divider"></div>
-    </div>
-</div>
+    </section>
 
-<div class="ui hidden divider"></div>
+{% endblock %}
 
-<div class="ui top attached large tabular menu">
-    {% include '@SyliusShop/Product/Show/_menu.html.twig' %}
-</div>
-{% include '@SyliusShop/Product/Show/_tabs.html.twig' %}
 
-{% include '@SyliusShop/Product/Show/_associations.html.twig' %}
+{% block body %}
+
+            {% if book.facebookLinkUrl %}
+                <div class="col-md-offset-4 col-md-4 button-facebook">
+                    <a href="{{ book.facebookLinkUrl }}" target="_blank">Page Facebook</a>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+    {% if pressArticles %}
+        <div class="container">
+            <hr>
+        </div>
+        <section class="container pressSection">
+            <h2 class="text-center">La presse en parle</h2>
+            <div class="row">
+                {% for pressArticle in pressArticles %}
+                    <div class="col-md-4">
+                        <div class="pressCard">
+                            <h3 class="text-center">{{ pressArticle.title }}</h3>
+                            <div class="pressImage">
+                                <img src="{{ asset(pressArticle_directory ~ pressArticle.imageUrl) }}" alt="{{ pressArticle.imageUrl }}" data-toggle="modal" data-target="#{{ pressArticle.id }}">
+                                <div class="modal fade" id="{{ pressArticle.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">{{ pressArticle.title }}</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="{{ asset(pressArticle_directory ~ pressArticle.imageUrl) }}">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
 {% endblock %}

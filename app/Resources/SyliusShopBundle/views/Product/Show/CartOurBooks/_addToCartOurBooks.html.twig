@@ -13,7 +13,8 @@
         {% endif %}
     {% endif %}
     {{ form_row(form.quantity) }}
-    <button type="submit" class="ui huge primary icon labeled button"><i class="cart icon"></i> {{ 'sylius.ui.add_to_cart'|trans }}</button>
+    <button type="" class="ui huge primary icon labeled ">
+        <img class="panier" src="{{ asset('img/panier.png') }}"></i> {{ 'sylius.ui.add_to_cart'|trans }}</button>
     {{ form_row(form._token) }}
     {{ form_end(form, {'render_rest': false}) }}
 </div>

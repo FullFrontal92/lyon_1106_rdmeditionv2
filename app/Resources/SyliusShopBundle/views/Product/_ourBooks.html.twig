@@ -20,8 +20,12 @@
                                 <p>{{ product.description[:200]|raw }}...</p><br/>
                             </div>
 
-                            <div class="priceDescri">
+                            <div class="col-xs-2 priceDescri">
                                 <p>{{ product.price|sylius_price }}</p>
+                            </div>
+
+                            <div class="col-xs-10">
+                                {% include 'SyliusShopBundle::Product/Show/CartOurBooks/_inventoryOurBooks.html.twig' %}
                             </div>
 
                             <div class="row">
