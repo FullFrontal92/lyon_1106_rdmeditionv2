@@ -8,14 +8,15 @@
                 {{ form_row(form.code) }}
                 {% if product.simple %}
                     {{ form_row(form.variant.price) }}
-                    {{ form_row(form.variant.onHand) }}
-                    {{ form_row(form.variant.tracked) }}
+                    {{ form_row(form.variant.price) }}
+
                 {% else %}
                     {{ form_row(form.options) }}
                     {{ form_row(form.variantSelectionMethod) }}
                 {% endif %}
                 {{ form_row(form.enabled) }}
 
+                {{ dump(form) }}
                 {# Nothing to see here. #}
                 <div class="ui hidden element">
                     {{ form_row(form.variantSelectionMethod) }}
@@ -35,7 +36,6 @@
             </div>
             <div class="content{% if 0 == loop.index0 %} active{% endif %}">
                 {{ form_row(translationForm.name) }}
-                {{ form_row(translationForm.shortDescription, {'attr': {'rows': 3}}) }}
                 {{ form_row(translationForm.description) }}
             </div>
         {% endfor %}
