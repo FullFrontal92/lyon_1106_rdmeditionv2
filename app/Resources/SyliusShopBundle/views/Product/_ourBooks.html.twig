@@ -1,7 +1,7 @@
 
     <div class="container">
         <table class="bookArray col-md-10 col-md-offset-1">
-            {% for product in products %}
+            {% for product in products|shuffle %}
                 <tr class="row">
                     <td>
                         <a class="tableImg" href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}">
