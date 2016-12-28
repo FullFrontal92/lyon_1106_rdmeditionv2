@@ -156,3 +156,7 @@
     background-image: url('/web/img/panier.png');
     border: 50px solid red;
 }
+
+.block_global{
+    margin-top: 75px;
+}
