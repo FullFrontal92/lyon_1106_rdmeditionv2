@@ -6,16 +6,13 @@
         <div class="column">
             <div class="ui segment">
                 {{ form_row(form.code) }}
-                {% if product.simple %}
-                    {{ form_row(form.variant.price) }}
-                    {{ form_row(form.variant.price) }}
-
-                {% else %}
-                    {{ form_row(form.options) }}
-                    {{ form_row(form.variantSelectionMethod) }}
-                {% endif %}
+                {{ form_row(form.variant.price) }}
+                {{ form_row(form.author) }}
                 {{ form_row(form.enabled) }}
-
+                {{ form_row(form.promo) }}
+                {{ form_row(form.new) }}
+                {{ form_row(form.preOrder) }}
+                {{ form_row(form.releaseDate) }}
                 {{ dump(form) }}
                 {# Nothing to see here. #}
                 <div class="ui hidden element">
