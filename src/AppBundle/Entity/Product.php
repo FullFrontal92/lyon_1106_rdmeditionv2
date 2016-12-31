@@ -2,11 +2,78 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\AppBundle;
+use Doctrine\ORM\Event\LifecycleEventArgs;
+use Symfony\Component\HttpFoundation\Response;
+use Guzzle\Http\Message\Request;
 use  Sylius\Component\Core\Model\Product as BaseProduct;
 
 
 class Product extends BaseProduct
 {
+
+    /*
+     * PrePersist and PreUpdate
+     */
+    protected $data = [];
+
+    public function setCreatedAtValue(LifecycleEventArgs $args)
+    {
+
+        $this->createdAt = new \DateTime();
+
+        if ($this->getPreorder() == true) {
+            $em = $args->getObjectManager()->getRepository(Product::class)->findAll();
+
+            foreach ($em as $book) {
+                if ($book->getPreorder() == true) {
+                    $book->setPreorder(false);
+                    $this->data[] = $book;
+                }
+            }
+
+        }
+
+    }
+
+
+    public function setUpdatedAtValue(LifecycleEventArgs $args)
+    {
+        $id = $this->getId();
+        $this->updatedAt = new \DateTime();
+        if ($this->getPreorder() == true) {
+            $em = $args->getObjectManager()->getRepository(Product::class)->findAll();
+
+            foreach ($em as $book) {
+                if ($book->getPreorder() == true && $book->getId() != $id) {
+                    $book->setPreorder(false);
+                    $this->data[] = $book;
+                }
+            }
+
+        }
+    }
+    public function postFlush(LifecycleEventArgs $args)
+    {
+        if(!empty($this->data)) {
+
+            $em = $args->getEntityManager();
+            var_dump($this->data);
+            foreach ($this->data as $book) {
+                $em->persist($book);
+            }
+
+            $this->data = [];
+            $em->flush();
+        }
+
+    }
+
+
+
+    /*
+        Fields added on Product model
+     */
     private $author;
 
     private $preorder;

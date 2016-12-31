@@ -16,3 +16,6 @@ AppBundle\Entity\Product:
             nullable: true
         releaseDate:
             type: datetime
+    lifecycleCallbacks:
+        preUpdate: [ setUpdatedAtValue ]
+        postUpdate: [ postFlush ]

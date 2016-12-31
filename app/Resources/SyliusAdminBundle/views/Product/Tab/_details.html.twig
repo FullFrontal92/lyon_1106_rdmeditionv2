@@ -6,14 +6,21 @@
         <div class="column">
             <div class="ui segment">
                 {{ form_row(form.code) }}
-                {{ form_row(form.variant.price) }}
-                {{ form_row(form.author) }}
+                {% if product.simple %}
+                    {{ form_row(form.author) }}
+                    {{ form_row(form.promo) }}
+                    {{ form_row(form.new) }}
+                    {{ form_row(form.preOrder) }}
+                    {{ form_row(form.releaseDate) }}
+                    {{ form_row(form.variant.price) }}
+                    {{ form_row(form.variant.onHand) }}
+                    {{ form_row(form.variant.tracked) }}
+                {% else %}
+                    {{ form_row(form.options) }}
+                    {{ form_row(form.variantSelectionMethod) }}
+                {% endif %}
                 {{ form_row(form.enabled) }}
-                {{ form_row(form.promo) }}
-                {{ form_row(form.new) }}
-                {{ form_row(form.preOrder) }}
-                {{ form_row(form.releaseDate) }}
-                {{ dump(form) }}
+
                 {# Nothing to see here. #}
                 <div class="ui hidden element">
                     {{ form_row(form.variantSelectionMethod) }}
@@ -33,6 +40,7 @@
             </div>
             <div class="content{% if 0 == loop.index0 %} active{% endif %}">
                 {{ form_row(translationForm.name) }}
+                {{ form_row(translationForm.shortDescription, {'attr': {'rows': 3}}) }}
                 {{ form_row(translationForm.description) }}
             </div>
         {% endfor %}

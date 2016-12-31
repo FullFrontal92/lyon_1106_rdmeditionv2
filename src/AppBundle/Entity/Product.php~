@@ -2,11 +2,85 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\AppBundle;
+use Doctrine\ORM\Event\LifecycleEventArgs;
+use Symfony\Component\HttpFoundation\Response;
+use Guzzle\Http\Message\Request;
 use  Sylius\Component\Core\Model\Product as BaseProduct;
 
 
 class Product extends BaseProduct
 {
+    /*
+     * PrePersist and PreUpdate
+     */
+    public function setCreatedAtValue()
+    {
+        $entity = $args->getEntity()->findAll();
+        foreach ($entity as $entities){
+            if ( $entities->getPreorder() == true){
+                $this->setPreorder(false);
+            }
+        }
+        $this->createdAt = new \DateTime();
+        $this->author = "AymenLeBg";
+    }
+
+
+    public function setUpdatedAtValue(LifecycleEventArgs $args)
+    {
+        $id = $this->getId();
+        $this->updatedAt = new \DateTime();
+        $em2 = $args->getEntityManager();
+        $em = $args->getObjectManager()->getRepository(Product::class)->findAll();
+        foreach ($em as $book){
+            echo "product before if \n ";
+            if($book->getPreorder() == true && $book->getId() != $id){
+
+                echo "product before set \n ";
+                $book->getId();
+                $book->setPreorder(false);
+                $em2->persist($book);
+                $em2->flush();
+
+                echo "product after set \n ";
+            }
+        }
+       /* $product = $this->getRepository('AppBundle:Product')
+            ->findAll();
+        var_dump($product);
+
+        var_dump($entity);
+        foreach ($entity as $entities){
+            if ( $this->getPreorder() == true AND $this->getId() != $id){
+                $this->setPreorder(false);
+            }
+        }
+        $this->createdAt = new \DateTime();
+        $this->author = "AymenLeBg";
+
+        /*$id = $this->getId();
+        $entity = $args->getEntity();
+        foreach ($entity as $book){
+            if ( $this->getId() != $id && $this->getPreorder() == true){
+                $this->setPreorder(false);
+            }
+        }
+
+        if ($this->getNew() == true){
+            $productRepository = $this->container->get('sylius.repository.product');
+            $bestsellers = $productRepository->findBySold();
+
+        }
+
+       */
+    }
+
+
+
+    /*
+        Fields added on Product model
+     */
     private $author;
 
     private $preorder;

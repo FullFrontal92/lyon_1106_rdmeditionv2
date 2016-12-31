@@ -10,6 +10,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         {% for product in products %}
+            {% if product.preOrder == true or product.new == true or product.promo == true %}
                 <!-- Wrapper for slides -->
             <div class="item row">
                 <div class="col-xs-4">
@@ -26,10 +27,23 @@
                             <span class="carousel-know-more">
                         <a href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}">En savoir +</a>
                     </span>
+
+                        {% if product.preOrder == true %}
+                            <p>ajouter vignette pre-commande</p>
+                        {% endif %}
+                        {% if product.new == true  %}
+                            <p>ajouter vignette new</p>
+                        {% endif %}
+                        {% if product.promo == true %}
+                            <p>ajouter vignette promo</p>
+                        {% endif %}
+
+
                         </p>
                     </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
     </div>
     <!-- Controls -->
