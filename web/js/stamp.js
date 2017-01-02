@@ -5,18 +5,15 @@ $(document).ready(function() {
 
     // Block Stamp checkbox so only one can be enable for a product
 
-    if ( $(promo).attr('checked', 'checked') ){
+    if ( $(promo).attr('checked') == 'checked' ){
         $(promo).addClass('selected');
-        $(preorder).prop('disabled', true);
-        $(news).prop('disabled', true);
-    } else if ( $(news).attr('checked', 'checked') ){
+        disable(preorder,news);
+    } else if ( $(news).attr('checked') == 'checked') {
         $(news).addClass('selected');
-        $(preorder).prop('disabled', true);
-        $(promo).prop('disabled', true);
-    }else if( $(preorder).attr('checked', 'checked') ){
-        $(preorder).addClass('selected')
-        $(promo).prop('disabled', true);
-        $(news).prop('disabled', true);
+        disable(preorder,promo);
+    }else if( $(preorder).attr('checked') == 'checked') {
+        $(preorder).addClass('selected');
+        disable(promo,news);
     }
 
     function disable($a, $b) {
@@ -28,34 +25,42 @@ $(document).ready(function() {
         $($b).removeAttr('disabled');
     }
 
+    function testClass($a, $b) {
+        return !($($a).hasClass("selected") || $($b).hasClass("selected"));
+
+    }
 
     $("label[for='sylius_product_promo']").click(function () {
-        if ($(promo).hasClass("selected")){
-            enable(news, preorder);
-            $(promo).removeClass("selected");
-        } else {
-            disable(news, preorder);
-            $(promo).addClass("selected");
+        if (testClass(news, preorder)) {
+            if ($(promo).hasClass("selected")) {
+                enable(news, preorder);
+                $(promo).removeClass("selected");
+            } else {
+                disable(news, preorder);
+                $(promo).addClass("selected");
+            }
         }
     });
     $("label[for='sylius_product_new']").click(function () {
-
-        if ($(news).hasClass("selected")){
-            enable(promo, preorder);
-            $(news).removeClass("selected");
-        } else {
-            disable(promo, preorder);
-            $(news).addClass("selected");
+        if (testClass(preorder, promo)){
+            if ($(news).hasClass("selected")) {
+                enable(promo, preorder);
+                $(news).removeClass("selected");
+            } else {
+                disable(promo, preorder);
+                $(news).addClass("selected");
         }
+    }
     });
     $("label[for='sylius_product_preOrder']").click(function () {
-
-        if ($(preorder).hasClass("selected")){
-            enable(news, promo);
-            $(preorder).removeClass("selected");
-        } else {
-            disable(news, promo);
-            $(preorder).addClass("selected");
+        if (testClass(news, promo)) {
+            if ($(preorder).hasClass("selected")) {
+                enable(news, promo);
+                $(preorder).removeClass("selected");
+            } else {
+                disable(news, promo);
+                $(preorder).addClass("selected");
+            }
         }
     });
 });
