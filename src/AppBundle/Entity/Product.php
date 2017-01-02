@@ -13,7 +13,7 @@ class Product extends BaseProduct
 {
 
     /*
-     * PrePersist and PreUpdate
+     * LifeCycleCallBack Events
      */
     protected $data = [];
 
@@ -21,9 +21,9 @@ class Product extends BaseProduct
     {
 
         $this->createdAt = new \DateTime();
+        $em = $args->getObjectManager()->getRepository(Product::class)->findAll();
 
         if ($this->getPreorder() == true) {
-            $em = $args->getObjectManager()->getRepository(Product::class)->findAll();
 
             foreach ($em as $book) {
                 if ($book->getPreorder() == true) {
@@ -31,45 +31,66 @@ class Product extends BaseProduct
                     $this->data[] = $book;
                 }
             }
+        } elseif ($this->getNew() == true) {
 
+            foreach ($em as $book) {
+                if ($book->getNew() == true) {
+                    $book->setNew(false);
+                    $this->data[] = $book;
+                }
+            }
+        } elseif ($this->getPromo() == true) {
+
+            foreach ($em as $book) {
+                if ($book->getPromo() == true) {
+                    $book->setPromo(false);
+                    $this->data[] = $book;
+                }
+            }
         }
-
     }
-
 
     public function setUpdatedAtValue(LifecycleEventArgs $args)
     {
         $id = $this->getId();
         $this->updatedAt = new \DateTime();
+        $em = $args->getObjectManager()->getRepository(Product::class)->findAll();
         if ($this->getPreorder() == true) {
-            $em = $args->getObjectManager()->getRepository(Product::class)->findAll();
-
             foreach ($em as $book) {
                 if ($book->getPreorder() == true && $book->getId() != $id) {
                     $book->setPreorder(false);
                     $this->data[] = $book;
                 }
             }
-
+        } elseif ($this->getNew() == true ) {
+            foreach ($em as $book) {
+                if ($book->getNew() == true && $book->getId() != $id) {
+                    $book->setNew(false);
+                    $this->data[] = $book;
+                }
+            }
+        } elseif ($this->getPromo() == true) {
+            foreach ($em as $book) {
+                if ($book->getPromo() == true && $book->getId() != $id) {
+                    $book->setPromo(false);
+                    $this->data[] = $book;
+                }
+            }
         }
     }
+
     public function postFlush(LifecycleEventArgs $args)
     {
         if(!empty($this->data)) {
 
             $em = $args->getEntityManager();
-            var_dump($this->data);
             foreach ($this->data as $book) {
                 $em->persist($book);
             }
-
             $this->data = [];
             $em->flush();
         }
-
     }
-
-
 
     /*
         Fields added on Product model
