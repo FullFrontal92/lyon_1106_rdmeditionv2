@@ -88,7 +88,19 @@
     background: none;
 }
 
-
+.stamp {
+    z-index: 50;
+    position: absolute;
+    left:-100px;
+    top: 50px;
+    text-align: center;
+    color: white;
+    font-size: 1.1em!important;;
+    background-color: #5D1C43;
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+}
 
 
 @media only screen and (max-width: 769px) {
