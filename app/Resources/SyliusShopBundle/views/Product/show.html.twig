@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="img-container">
-                    {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
+                    <img src="{{ asset("media/image/"~ product.images.snapshot.0.path) }}" class="img_book" alt="Couverture de {{ product.name }}"  data-toggle="modal" data-target="#coverModal">
                     <!-- Modal book's cover-->
                     <div class="modal fade" id="coverModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
@@ -18,7 +18,7 @@
                                     <h4 class="modal-title" id="myModalLabel">{{ product.name }}</h4>
                                 </div>
                                 <div class="modal-body">
-                                    {% include '@SyliusShop/Product/Show/_images.html.twig' %}
+                                    <img src="{{ asset("media/image/"~ product.images.snapshot.0.path) }}" class="img_book" alt="Couverture de {{ product.name }}"  data-toggle="modal" data-target="#coverModal">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
@@ -43,11 +43,11 @@
                 <table class="info-container">
                     <tr>
                         <th><span class="tag">Auteur</span></th>
-                        <td>add book author field on product entity</td>
+                        <td>{{ product.author }}</td>
                     </tr>
                     <tr>
                         <th><span class="tag">Parution</span></th>
-                        <td>{{ product.availableOn|date("d/m/Y", "Europe/Paris") }}</td>
+                        <td>{{ product.releaseDate|date("d/m/Y", "Europe/Paris") }}</td>
                     </tr>
                 </table><br />
             </div>
