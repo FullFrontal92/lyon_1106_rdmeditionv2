@@ -25,7 +25,7 @@
                     {% endif %}
 
                     <div class="img-container">
-                        {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
+                        <img src="{{ asset("media/image/"~ product.images.snapshot.0.path) }}" alt="Couverture de {{ product.name }} ">
                     </div>
                 </div>
                 <div class="col-xs-8">
