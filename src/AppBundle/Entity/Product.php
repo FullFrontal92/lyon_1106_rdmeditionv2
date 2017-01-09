@@ -95,6 +95,10 @@ class Product extends BaseProduct
     /*
         Fields added on Product model
      */
+    private $event;
+
+    private $facebook;
+
     private $author;
 
     private $preorder;
@@ -213,5 +217,52 @@ class Product extends BaseProduct
     public function getCondition()
     {
         return $this->condition;
+    }
+
+
+    /**
+     * Set facebook
+     *
+     * @param string $facebook
+     * @return Product
+     */
+    public function setFacebook($facebook)
+    {
+        $this->facebook = $facebook;
+
+        return $this;
+    }
+
+    /**
+     * Get facebook
+     *
+     * @return string 
+     */
+    public function getFacebook()
+    {
+        return $this->facebook;
+    }
+
+    /**
+     * Set event
+     *
+     * @param string $event
+     * @return Product
+     */
+    public function setEvent($event)
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    /**
+     * Get event
+     *
+     * @return string 
+     */
+    public function getEvent()
+    {
+        return $this->event;
     }
 }
