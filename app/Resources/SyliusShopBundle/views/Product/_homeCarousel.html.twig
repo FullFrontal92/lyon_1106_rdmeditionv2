@@ -36,8 +36,12 @@
                             <span class="quote">"</span>
                             <span class="carousel-know-more">
                         <a href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}">En savoir +</a>
-                    </span>
-
+                            </span>
+                        {% if product.event is not null %}
+                        <p class="carousel_event">
+                            {{ product.event }}
+                        </p>
+                        {% endif %}
 
 
                         </p>

@@ -19,7 +19,13 @@ final class ProductTypeExtension extends AbstractTypeExtension
             'label' => 'Autheur',
         ]);
         $builder->add('releaseDate', DateType::class, [
-            'required' => false,
+            'widget' => 'single_text',
+
+            // do not render as type="date", to avoid HTML5 date pickers
+            'html5' => false,
+
+            // add a class that can be selected in JavaScript
+            'attr' => ['class' => 'js-datepicker'],
             'label' => 'Date de parution',
         ]);
 
@@ -38,8 +44,16 @@ final class ProductTypeExtension extends AbstractTypeExtension
             'label' => 'Promo',
         ]);
 
+        $builder->add('facebook', TextType::class, [
+            'required' => false,
+            'label' => 'Lien Facebook',
+        ]);
 
-        $builder->remove('code');
+        $builder->add('event', TextType::class, [
+            'required' => false,
+            'label' => 'Evenement',
+        ]);
+
     }
 
     /**
