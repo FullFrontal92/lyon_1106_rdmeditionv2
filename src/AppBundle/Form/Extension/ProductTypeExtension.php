@@ -20,13 +20,10 @@ final class ProductTypeExtension extends AbstractTypeExtension
         ]);
         $builder->add('releaseDate', DateType::class, [
             'widget' => 'single_text',
-
-            // do not render as type="date", to avoid HTML5 date pickers
             'html5' => false,
-
-            // add a class that can be selected in JavaScript
             'attr' => ['class' => 'js-datepicker'],
             'label' => 'Date de parution',
+            'format' => 'dd/MM/yyyy'
         ]);
 
         $builder->add('preOrder', CheckboxType::class, [
