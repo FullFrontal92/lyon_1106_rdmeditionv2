@@ -1,13 +1,14 @@
 {% extends 'SyliusShopBundle::/layout.html.twig' %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/master.css') }}">
     <link rel="stylesheet" href="{{ asset('css/events.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 {% endblock %}
 
 {% block content %}
     <!-- CAROUSEL , REQUEST NEEDS TO BE MODIFIED ACCORDING TO EVENT, DISCOUNT OR PRE-ORDER -->
-{{ render(url('sylius_shop_partial_product_index_latest', {'count': 3, 'template': 'SyliusShopBundle::/Product/_homeCarousel.html.twig'})) }}
+{{ render(url('sylius_shop_partial_product_index_latest', {'count': 9999, 'template': 'SyliusShopBundle::/Product/_homeCarousel.html.twig'})) }}
 
     <!-- Liste of Books under carousel on HomePage -->
 {{ render(url('sylius_shop_partial_product_index_latest', {'count': 9999, 'template': 'SyliusShopBundle::/Product/_homeBooks.html.twig'})) }}

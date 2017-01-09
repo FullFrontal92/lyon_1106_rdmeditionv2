@@ -1,0 +1,21 @@
+AppBundle\Entity\Product:
+    type: entity
+    table: sylius_product
+    fields:
+        author:
+            type: string
+            lenght: 50
+        promo:
+            type: boolean
+            nullable: true
+        preorder:
+            type: boolean
+            nullable: true
+        new:
+            type: boolean
+            nullable: true
+        releaseDate:
+            type: datetime
+    lifecycleCallbacks:
+        preUpdate: [ setUpdatedAtValue ]
+        postUpdate: [ postFlush ]

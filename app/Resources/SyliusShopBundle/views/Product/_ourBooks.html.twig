@@ -1,11 +1,14 @@
 
     <div class="container">
         <table class="bookArray col-md-10 col-md-offset-1">
-            {% for product in products %}
+            <!-- shuffle function to get a random list of producst -->
+            {% for product in products|shuffle %}
                 <tr class="row">
                     <td>
                         <a class="tableImg" href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}">
-                        {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
+                            {% if product.images.snapshot.0.path %}
+                                <img src="{{ asset("media/image/"~ product.images.snapshot.0.path) }}" class="img_book" alt="Couverture de {{ product.name }}"  data-toggle="modal" data-target="#coverModal">
+                            {% endif %}
                         </a>
                     </td>
                     <td>

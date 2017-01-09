@@ -21,7 +21,7 @@ class BookController extends BaseProductController
         return $this->render('SyliusShopBundle:Homepage:books.html.twig');
     }
 
-    public function generalConditionsAction()
+    public function generalConditions()
     {
         return $this->render('SyliusShopBundle:Homepage:generalConditions.html.twig');
     }

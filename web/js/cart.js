@@ -14,4 +14,11 @@ $(document).ready(function() {
     $('#sylius-cart-button').mouseleave(function() {
         $(".basketIcon").attr("src","/img/panier.png" )
     });
+
+    $('.addCart').mouseenter(function() {
+        $(this).children('.panier').attr("src","/img/panierviolet.png" )
+    });
+    $('.addCart').mouseleave(function() {
+        $(this).children('.panier').attr("src","/img/panier.png" )
+    });
 });

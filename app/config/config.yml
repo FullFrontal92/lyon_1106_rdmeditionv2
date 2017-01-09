@@ -69,4 +69,5 @@ sylius_product:
     resources:
         product:
             classes:
+                model: AppBundle\Entity\Product
                 controller: AppBundle\Controller\BookController
