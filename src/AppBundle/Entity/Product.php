@@ -39,14 +39,6 @@ class Product extends BaseProduct
                     $this->data[] = $book;
                 }
             }
-        } elseif ($this->getPromo() == true) {
-
-            foreach ($em as $book) {
-                if ($book->getPromo() == true) {
-                    $book->setPromo(false);
-                    $this->data[] = $book;
-                }
-            }
         }
     }
 
@@ -66,13 +58,6 @@ class Product extends BaseProduct
             foreach ($em as $book) {
                 if ($book->getNew() == true && $book->getId() != $id) {
                     $book->setNew(false);
-                    $this->data[] = $book;
-                }
-            }
-        } elseif ($this->getPromo() == true) {
-            foreach ($em as $book) {
-                if ($book->getPromo() == true && $book->getId() != $id) {
-                    $book->setPromo(false);
                     $this->data[] = $book;
                 }
             }
