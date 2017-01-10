@@ -21,14 +21,13 @@ final class ProductTypeExtension extends AbstractTypeExtension
         $builder->add('releaseDate', DateType::class, [
             'widget' => 'single_text',
             'html5' => false,
-            'attr' => ['class' => 'js-datepicker'],
             'label' => 'Date de parution',
             'format' => 'dd/MM/yyyy'
         ]);
 
         $builder->add('preOrder', CheckboxType::class, [
             'required' => false,
-            'label' => 'Pré-vente',
+            'label' => 'Pré-commande',
         ]);
 
         $builder->add('new', CheckboxType::class, [
@@ -38,7 +37,7 @@ final class ProductTypeExtension extends AbstractTypeExtension
 
         $builder->add('promo', CheckboxType::class, [
             'required' => false,
-            'label' => 'Promo',
+            'label' => 'Promotion',
         ]);
 
         $builder->add('facebook', TextType::class, [
