@@ -32,7 +32,7 @@ final class ProductTypeExtension extends AbstractTypeExtension
 
         $builder->add('new', CheckboxType::class, [
             'required' => false,
-            'label' => 'Nouveau',
+            'label' => 'Nouveauté',
         ]);
 
         $builder->add('promo', CheckboxType::class, [
