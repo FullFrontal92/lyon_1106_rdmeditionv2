@@ -1,0 +1,14 @@
+payum:
+    gateways:
+        paypal_express_checkout:
+            factory: "paypal_express_checkout"
+            payum.http_client: "@sylius.payum.http_client"
+            username: adam.benyahia92-facilitator_api1.gmail.com
+            password: 4VPREZ88MMD6D842
+            signature: AFcWxV21C7fd0v3bYYYRCpSSRl31AjHntlrehK1p0ZeX7.PpFQU5oRyb
+            sandbox: "%paypal.express_checkout.sandbox%"
+
+sylius_payment:
+    gateways:
+        paypal_express_checkout: Paypal Express Checkout
+
