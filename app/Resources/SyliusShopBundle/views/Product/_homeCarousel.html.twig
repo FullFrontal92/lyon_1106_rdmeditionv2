@@ -9,46 +9,60 @@
         <li data-target="#carousel" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
+        {% set carProducts = [] %}
+        {% set car = [] %}
         {% for product in products %}
-            {% if product.preOrder == true or product.new == true or product.promo == true %}
+            {% if product.preOrder == true or product.new == true or product.promo == true or product.event is not null %}
+                {% set carProducts = carProducts|merge([product]) %}
+            {% endif %}
+        {% endfor %}
+
+        {% for carProduct in carProducts %}
+            {% if carProduct.event is not null %}
+                {% set car = car|merge([carProduct]) %}
+            {% endif %}
+        {% endfor %}
+
+        {% for carProduct in carProducts|shuffle %}
+            {% if (carProduct.preOrder == true or carProduct.new == true or carProduct.promo == true) and car|length < 3 %}
+                {% set car = car|merge([carProduct]) %}
+            {% endif %}
+        {% endfor %}
+        {% for carProduct in car %}
                 <!-- Wrapper for slides -->
             <div class="item row">
                 <div class="col-xs-4">
-                    {% if product.preOrder == true %}
+                    {% if carProduct.preOrder == true %}
                         <p class="stamp col-xs-10">Pré-commande</p>
                     {% endif %}
-                    {% if product.new == true  %}
+                    {% if carProduct.new == true  %}
                         <p class="stamp col-xs-10">Nouveauté</p>
                     {% endif %}
-                    {% if product.promo == true %}
+                    {% if carProduct.promo == true %}
                         <p class="stamp col-xs-10">Promotion</p>
                     {% endif %}
 
                     <div class="img-container">
-                        <img src="{{ asset("media/image/"~ product.images.snapshot.0.path) }}" alt="Couverture de {{ product.name }} ">
+                        <img src="{{ asset("media/image/"~ carProduct.images.snapshot.0.path) }}" alt="Couverture de {{ carProduct.name }} ">
                     </div>
                 </div>
                 <div class="col-xs-8">
                     <div class="title-container">
                         <p>
                             <span class="quote">"</span>
-                            {{ product.name }}
+                            {{ carProduct.name }}
                             <span class="quote">"</span>
                             <span class="carousel-know-more">
-                        <a href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}">En savoir +</a>
+                        <a href="{{ path('sylius_shop_product_show', {'slug': carProduct.slug}) }}">En savoir +</a>
                             </span>
-                        {% if product.event is not null %}
+                        </p>
                         <p class="carousel_event">
-                            {{ product.event }}
+                            {{ carProduct.event }}
                         </p>
-                        {% endif %}
 
-
-                        </p>
                     </div>
                 </div>
             </div>
-            {% endif %}
         {% endfor %}
     </div>
     <!-- Controls -->
