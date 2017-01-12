@@ -19,7 +19,7 @@
             {% if product.preOrder == true or product.new == true or product.promo == true or product.event is not null %}
                 {% set carProducts = carProducts|merge([product]) %}
             {% else %}
-                {% set productN = carProducts|merge([product]) %}
+                {% set productN = productN|merge([product]) %}
             {% endif %}
         {% endfor %}
 
