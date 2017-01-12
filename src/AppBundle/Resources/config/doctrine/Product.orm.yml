@@ -16,6 +16,14 @@ AppBundle\Entity\Product:
             nullable: true
         releaseDate:
             type: datetime
+        event:
+            type: string
+            lenght: 255
+            nullable: true
+        facebook:
+            type: string
+            lenght: 255
+            nullable: true
     lifecycleCallbacks:
         preUpdate: [ setUpdatedAtValue ]
         postUpdate: [ postFlush ]
