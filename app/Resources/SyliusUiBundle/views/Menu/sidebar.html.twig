@@ -1,18 +1,8 @@
 {% extends 'knp_menu.html.twig' %}
-{% set array = [] %}
-{% set array = array|merge(['attributes']) %}
-{% set array = array|merge(['taxons']) %}
-{% set array = array|merge(['options']) %}
-{% set array = array|merge(['groups']) %}
-{% set array = array|merge(['routes']) %}
-{% set array = array|merge(['promotions']) %}
-{% set array = array|merge(['static_contents']) %}
-{% set array = array|merge(['marketing']) %}
-{% set array = array|merge(['content']) %}
+{% set array = ['attributes', 'taxons', 'options', 'groups', 'routes', 'promotions', 'static_contents', 'marketing', 'content' ] %}
 
 
 {% block list %}
-    {# set item.root.children.catalog.children = item.root.children.catalog.children[1:1] #}
     {% for item in item.children %}
         {% if item.name not in array %}
             {{ block('item') }}
