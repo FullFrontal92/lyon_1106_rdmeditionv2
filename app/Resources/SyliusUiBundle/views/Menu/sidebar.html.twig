@@ -1,12 +1,12 @@
 {% extends 'knp_menu.html.twig' %}
-{% set array = ['attributes', 'taxons', 'options', 'groups', 'routes', 'promotions', 'static_contents', 'marketing', 'content' ] %}
 
+{% set array = ['attributes', 'taxons', 'options', 'groups', 'routes', 'promotions', 'static_contents', 'marketing', 'content' ] %}
 
 {% block list %}
     {% for item in item.children %}
-        {% if item.name not in array %}
+       {% if item.name not in array %}
             {{ block('item') }}
-        {% endif %}
+       {% endif %}
     {% endfor %}
 {% endblock %}
 
