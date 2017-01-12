@@ -11,76 +11,94 @@ use  Sylius\Component\Core\Model\Product as BaseProduct;
 
 class Product extends BaseProduct
 {
+
     /*
-     * PrePersist and PreUpdate
+     * LifeCycleCallBack Events
      */
-    public function setCreatedAtValue()
+    protected $data = [];
+
+    public function setCreatedAtValue(LifecycleEventArgs $args)
     {
-        $entity = $args->getEntity()->findAll();
-        foreach ($entity as $entities){
-            if ( $entities->getPreorder() == true){
-                $this->setPreorder(false);
+
+        $this->createdAt = new \DateTime();
+        $em = $args->getObjectManager()->getRepository(Product::class)->findAll();
+
+        if ($this->getPreorder() == true) {
+
+            foreach ($em as $book) {
+                if ($book->getPreorder() == true) {
+                    $book->setPreorder(false);
+                    $this->data[] = $book;
+                }
+            }
+        } elseif ($this->getNew() == true) {
+
+            foreach ($em as $book) {
+                if ($book->getNew() == true) {
+                    $book->setNew(false);
+                    $this->data[] = $book;
+                }
+            }
+        } elseif ($this->getPromo() == true) {
+
+            foreach ($em as $book) {
+                if ($book->getPromo() == true) {
+                    $book->setPromo(false);
+                    $this->data[] = $book;
+                }
             }
         }
-        $this->createdAt = new \DateTime();
-        $this->author = "AymenLeBg";
     }
-
 
     public function setUpdatedAtValue(LifecycleEventArgs $args)
     {
         $id = $this->getId();
         $this->updatedAt = new \DateTime();
-        $em2 = $args->getEntityManager();
         $em = $args->getObjectManager()->getRepository(Product::class)->findAll();
-        foreach ($em as $book){
-            echo "product before if \n ";
-            if($book->getPreorder() == true && $book->getId() != $id){
-
-                echo "product before set \n ";
-                $book->getId();
-                $book->setPreorder(false);
-                $em2->persist($book);
-                $em2->flush();
-
-                echo "product after set \n ";
+        if ($this->getPreorder() == true) {
+            foreach ($em as $book) {
+                if ($book->getPreorder() == true && $book->getId() != $id) {
+                    $book->setPreorder(false);
+                    $this->data[] = $book;
+                }
+            }
+        } elseif ($this->getNew() == true ) {
+            foreach ($em as $book) {
+                if ($book->getNew() == true && $book->getId() != $id) {
+                    $book->setNew(false);
+                    $this->data[] = $book;
+                }
+            }
+        } elseif ($this->getPromo() == true) {
+            foreach ($em as $book) {
+                if ($book->getPromo() == true && $book->getId() != $id) {
+                    $book->setPromo(false);
+                    $this->data[] = $book;
+                }
             }
         }
-       /* $product = $this->getRepository('AppBundle:Product')
-            ->findAll();
-        var_dump($product);
-
-        var_dump($entity);
-        foreach ($entity as $entities){
-            if ( $this->getPreorder() == true AND $this->getId() != $id){
-                $this->setPreorder(false);
-            }
-        }
-        $this->createdAt = new \DateTime();
-        $this->author = "AymenLeBg";
-
-        /*$id = $this->getId();
-        $entity = $args->getEntity();
-        foreach ($entity as $book){
-            if ( $this->getId() != $id && $this->getPreorder() == true){
-                $this->setPreorder(false);
-            }
-        }
-
-        if ($this->getNew() == true){
-            $productRepository = $this->container->get('sylius.repository.product');
-            $bestsellers = $productRepository->findBySold();
-
-        }
-
-       */
     }
 
+    public function postFlush(LifecycleEventArgs $args)
+    {
+        if(!empty($this->data)) {
 
+            $em = $args->getEntityManager();
+            foreach ($this->data as $book) {
+                $em->persist($book);
+            }
+            $this->data = [];
+            $em->flush();
+        }
+    }
 
     /*
         Fields added on Product model
      */
+    private $event;
+
+    private $facebook;
+
     private $author;
 
     private $preorder;
@@ -199,5 +217,29 @@ class Product extends BaseProduct
     public function getCondition()
     {
         return $this->condition;
+    }
+
+
+    /**
+     * Set facebook
+     *
+     * @param string $facebook
+     * @return Product
+     */
+    public function setFacebook($facebook)
+    {
+        $this->facebook = $facebook;
+
+        return $this;
+    }
+
+    /**
+     * Get facebook
+     *
+     * @return string 
+     */
+    public function getFacebook()
+    {
+        return $this->facebook;
     }
 }

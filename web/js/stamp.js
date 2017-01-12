@@ -1,64 +1,63 @@
 $(document).ready(function() {
     var promo = $('#sylius_product_promo');
     var news = $('#sylius_product_new');
-    var preorder =$('#sylius_product_preOrder');
 
-    function disable($a, $b) {
+    // Block Stamp checkbox so only one can be enable for a product
+
+    if ( $(promo).attr('checked') == 'checked' ){
+        $(promo).addClass('selected');
+        disable(news);
+    } else if ( $(news).attr('checked') == 'checked') {
+        $(news).addClass('selected');
+        disable(promo);
+    }
+
+    function disable($a) {
         $($a).prop('disabled', true);
-        $($b).prop('disabled', true);
     }
-    function enable($a, $b) {
+    function enable($a) {
         $a.removeAttr('disabled');
-        $b.removeAttr('disabled');
     }
+
     var promoCheck = promo.attr("checked");
     var newsCheck = news.attr("checked");
-    var preOrderCheck = preorder.attr("checked");
-    console.log(promoCheck);
-    // Block Stamp checkbox so only one can be enable for a product
+
+    // Block Stamp checkbox (new & promotion) : only one can be enable for a product
 
     if ( promoCheck == 'checked') {
         promo.addClass('selected');
-        preorder.prop('disabled', true);
-        news.prop('disabled', true);
+        disable(news);
     } else if (newsCheck == 'checked' == 'checked') {
         news.addClass('selected');
-        preorder.prop('disabled', true);
-        promo.prop('disabled', true);
-    } else if ( preOrderCheck == 'checked' == 'checked') {
-        preorder.addClass('selected');
-        promo.prop('disabled', true);
-        news.prop('disabled', true);
+        disable(promo);
     }
-
 
     $("label[for='sylius_product_promo']").click(function () {
         if (promo.hasClass("selected")){
-            enable(news, preorder);
+            enable(news);
             promo.removeClass("selected");
-        } else if (!news.hasClass("selected") && !preorder.hasClass("selected")) {
-            disable(news, preorder);
+        } else if (!news.hasClass("selected")) {
+            disable(news);
             promo.addClass("selected");
         }
     });
     $("label[for='sylius_product_new']").click(function () {
 
         if (news.hasClass("selected")){
-            enable(promo, preorder);
+            enable(promo);
             news.removeClass("selected");
-        } else if (!promo.hasClass("selected") && !preorder.hasClass("selected")){
-            disable(promo, preorder);
+        } else if (!promo.hasClass("selected")){
+            disable(promo);
             news.addClass("selected");
         }
     });
-    $("label[for='sylius_product_preOrder']").click(function () {
 
-        if (preorder.hasClass("selected")){
-            enable(news, promo);
-            preorder.removeClass("selected");
-        } else if (!promo.hasClass("selected") && !news.hasClass("selected")) {
-            disable(news, promo);
-            preorder.addClass("selected");
-        }
-    });
+   /*
+    started a script to disable saves change button if the input code on image is null
+    $('.ui').click(function(){
+    $("input[id^=sylius_product_images_][id$=_code]").each(function (i, el) {
+        //It'll be an array of elements
+        console.log(i, el);
+        });
+   })*/
 });
