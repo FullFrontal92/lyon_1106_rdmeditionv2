@@ -44,8 +44,11 @@ doctrine_migrations:
 swiftmailer:
     transport: "%mailer_transport%"
     host: "%mailer_host%"
+    encryption: ssl
+    auth_mode: login
     username: "%mailer_user%"
     password: "%mailer_password%"
+    spool: { type: memory }
 
 ewz_recaptcha:
     public_key:  6LfsgwoUAAAAANDWpHKY_GtsjsXG7XbDs4eamLSb
@@ -71,3 +74,14 @@ sylius_product:
             classes:
                 model: AppBundle\Entity\Product
                 controller: AppBundle\Controller\BookController
+
+sylius_mailer:
+    sender:
+        name: My website
+        address: dabinflorent@gmail.com
+
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
