@@ -1,7 +1,7 @@
 {% set cart = sylius_cart_get() %}
 
 <div id="sylius-cart-button" class="ui circular cart button">
-    <img src="{{ asset('img/panier.png') }}" class="basketIcon"/> {{ cart.total|sylius_price(cart.currencyCode) }}{% if not cart.empty %}, {{ cart.items|length }} {{ 'sylius.ui.items'|trans|lower }}{% endif %}
+    <img src="{{ asset('img/panier.png') }}" class="basketIcon"/> {% set total = cart.total - cart.shippingTotal %}{{ total|sylius_price(cart.currencyCode) }}{% if not cart.empty %}, {{ cart.items|length }} {{ 'sylius.ui.items'|trans|lower }}{% endif %}
 </div>
 <div class="ui large flowing cart hidden popup">
     {% if cart.empty %}
