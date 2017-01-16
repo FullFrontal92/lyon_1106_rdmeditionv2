@@ -77,8 +77,8 @@ sylius_product:
 
 sylius_mailer:
     sender:
-        name: My website
-        address: dabinflorent@gmail.com
+        name: RDM e-ditions
+        address: "%mailer_user%"
 
 
 stof_doctrine_extensions:
