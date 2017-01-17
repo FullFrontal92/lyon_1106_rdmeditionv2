@@ -5,7 +5,7 @@
 {% block content %}
     {% include '@SyliusShop/Register/_header.html.twig' %}
 
-    <div class="ui padded segment">
+    <div class="ui padded segment container">
         {{ form_start(form, {'action': path('sylius_shop_register'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
             {% include '@SyliusShop/Register/_form.html.twig' %}
             <button type="submit" class="ui large primary button">

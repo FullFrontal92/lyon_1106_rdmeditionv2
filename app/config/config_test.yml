@@ -5,8 +5,8 @@ imports:
     - { resource: "config.yml" }
 
 parameters:
-    currency: USD
-    locale: en_US
+    currency: EUR
+    locale: fr_FR
 
     sylius.order.allow_guest_order: true
 
@@ -44,7 +44,7 @@ payum:
             sandbox: true
 
 swiftmailer:
-    disable_delivery: true
+    disable_delivery: false
     logging: true
     spool:
         type: file

@@ -7,7 +7,8 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
 use Symfony\Component\HttpFoundation\Response;
 use Guzzle\Http\Message\Request;
 use  Sylius\Component\Core\Model\Product as BaseProduct;
-
+use Sylius\Component\Product\Model\ProductTranslation;
+//use Sylius\Component\Core\Model\ProductTranslation;
 
 class Product extends BaseProduct
 {
@@ -23,15 +24,7 @@ class Product extends BaseProduct
         $this->createdAt = new \DateTime();
         $em = $args->getObjectManager()->getRepository(Product::class)->findAll();
 
-        if ($this->getPreorder() == true) {
-
-            foreach ($em as $book) {
-                if ($book->getPreorder() == true) {
-                    $book->setPreorder(false);
-                    $this->data[] = $book;
-                }
-            }
-        } elseif ($this->getNew() == true) {
+        if ($this->getNew() == true) {
 
             foreach ($em as $book) {
                 if ($book->getNew() == true) {
@@ -55,14 +48,8 @@ class Product extends BaseProduct
         $id = $this->getId();
         $this->updatedAt = new \DateTime();
         $em = $args->getObjectManager()->getRepository(Product::class)->findAll();
-        if ($this->getPreorder() == true) {
-            foreach ($em as $book) {
-                if ($book->getPreorder() == true && $book->getId() != $id) {
-                    $book->setPreorder(false);
-                    $this->data[] = $book;
-                }
-            }
-        } elseif ($this->getNew() == true ) {
+
+        if ($this->getNew() == true ) {
             foreach ($em as $book) {
                 if ($book->getNew() == true && $book->getId() != $id) {
                     $book->setNew(false);
@@ -95,6 +82,10 @@ class Product extends BaseProduct
     /*
         Fields added on Product model
      */
+    private $event;
+
+    private $facebook;
+
     private $author;
 
     private $preorder;
@@ -213,5 +204,52 @@ class Product extends BaseProduct
     public function getCondition()
     {
         return $this->condition;
+    }
+
+
+    /**
+     * Set facebook
+     *
+     * @param string $facebook
+     * @return Product
+     */
+    public function setFacebook($facebook)
+    {
+        $this->facebook = $facebook;
+
+        return $this;
+    }
+
+    /**
+     * Get facebook
+     *
+     * @return string 
+     */
+    public function getFacebook()
+    {
+        return $this->facebook;
+    }
+
+    /**
+     * Set event
+     *
+     * @param string $event
+     * @return Product
+     */
+    public function setEvent($event)
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    /**
+     * Get event
+     *
+     * @return string 
+     */
+    public function getEvent()
+    {
+        return $this->event;
     }
 }
