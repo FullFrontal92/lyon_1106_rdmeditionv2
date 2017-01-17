@@ -78,7 +78,7 @@ sylius_product:
 sylius_mailer:
     sender:
         name: My website
-        address: dabinflorent@gmail.com
+        address: "%mailer_host%"
 
 
 stof_doctrine_extensions:
