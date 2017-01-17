@@ -14,8 +14,18 @@ parameters:
     mailer_password: ~
 
     secret: EDITME
-    locale: en_US
-    currency: USD
+    locale: fr_FR
+    currency: EUR
+
+    paypal.express_checkout.username: ~
+    paypal.express_checkout.password: ~
+    paypal.express_checkout.signature: ~
+    paypal.express_checkout.sandbox: ~
+
+    payum_username: ~
+    payum_password: ~
+    payum_signature: ~
 
     wkhtmltopdf.bin_path: /usr/bin/wkhtmltopdf
     wkhtmltoimage.bin_path: /usr/bin/wkhtmltoimage
+
