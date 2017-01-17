@@ -1,9 +1,13 @@
 {% extends 'knp_menu.html.twig' %}
 
+{% set array = ['attributes', 'taxons', 'options', 'groups', 'routes', 'promotions', 'static_contents', 'marketing', 'content' ] %}
+
 {% block list %}
-{% for item in item.children %}
-    {{ block('item') }}
-{% endfor %}
+    {% for item in item.children %}
+       {% if item.name not in array %}
+            {{ block('item') }}
+       {% endif %}
+    {% endfor %}
 {% endblock %}
 
 {% block item %}
@@ -21,6 +25,7 @@
 </a>
 {% endif %}
 {% endblock %}
+
 
 {% block icon %}
 {% set icon = item.labelAttribute('icon') %}

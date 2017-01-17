@@ -6,7 +6,6 @@ imports:
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusApiBundle/Resources/config/app/config.yml" }
-
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
 
@@ -77,8 +76,8 @@ sylius_product:
 
 sylius_mailer:
     sender:
-        name: My website
-        address: "%mailer_host%"
+        name: RDM e-ditions
+        address: "%mailer_user%"
 
 
 stof_doctrine_extensions:
