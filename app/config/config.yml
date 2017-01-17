@@ -8,6 +8,7 @@ imports:
     - { resource: "@SyliusApiBundle/Resources/config/app/config.yml" }
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
+    - { resource: "payum.yml" }
 
 framework:
     translator: { fallbacks: ["%locale%"] }
