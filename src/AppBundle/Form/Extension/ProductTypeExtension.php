@@ -19,27 +19,37 @@ final class ProductTypeExtension extends AbstractTypeExtension
             'label' => 'Autheur',
         ]);
         $builder->add('releaseDate', DateType::class, [
-            'required' => false,
+            'widget' => 'single_text',
+            'html5' => false,
             'label' => 'Date de parution',
+            'format' => 'dd/MM/yyyy'
         ]);
 
         $builder->add('preOrder', CheckboxType::class, [
             'required' => false,
-            'label' => 'Pré-vente',
+            'label' => 'Pré-commande',
         ]);
 
         $builder->add('new', CheckboxType::class, [
             'required' => false,
-            'label' => 'Nouveau',
+            'label' => 'Nouveauté',
         ]);
 
         $builder->add('promo', CheckboxType::class, [
             'required' => false,
-            'label' => 'Promo',
+            'label' => 'Promotion',
         ]);
 
+        $builder->add('facebook', TextType::class, [
+            'required' => false,
+            'label' => 'Lien Facebook',
+        ]);
 
-        $builder->remove('code');
+        $builder->add('event', TextType::class, [
+            'required' => false,
+            'label' => 'Evenement',
+        ]);
+
     }
 
     /**

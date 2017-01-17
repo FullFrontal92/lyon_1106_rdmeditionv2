@@ -6,7 +6,6 @@ imports:
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusApiBundle/Resources/config/app/config.yml" }
-
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
 
@@ -49,6 +48,7 @@ swiftmailer:
     username: "%mailer_user%"
     password: "%mailer_password%"
     spool: { type: memory }
+
 ewz_recaptcha:
     public_key:  6LfsgwoUAAAAANDWpHKY_GtsjsXG7XbDs4eamLSb
     private_key: 6LfsgwoUAAAAAC3U0zxz8fwq0eBL6vQUG7WXq0Cd
@@ -76,8 +76,9 @@ sylius_product:
 
 sylius_mailer:
     sender:
-        name: My website
-        address: dabinflorent@gmail.com
+        name: RDM e-ditions
+        address: "%mailer_user%"
+
 
 stof_doctrine_extensions:
     orm:
