@@ -90,12 +90,12 @@
     background-color: inherit;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1100px) {
     .navbar-nav {
         padding-right: 30px !important;
         padding-top: 100px;
+        text-align: center;
     }
-
 
 }
 
