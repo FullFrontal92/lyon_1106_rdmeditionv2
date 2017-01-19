@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use AppBundle\Entity\Formulaire;
 use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as RecaptchaTrue;
+use Knp\Snappy\Pdf;
 
 class BookController extends BaseProductController
 {
@@ -24,6 +25,22 @@ class BookController extends BaseProductController
     public function generalConditions()
     {
         return $this->render('SyliusShopBundle:Homepage:generalConditions.html.twig');
+    }
+
+    public function generateAction()
+    {
+        $html = $this->renderView('',
+            array('form' => $form->createView(),
+            ));
+
+        return new Response(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'attachment; filename="recap.pdf"'
+            )
+        );
     }
 
     public function aboutUs(Request $request)
@@ -76,4 +93,6 @@ class BookController extends BaseProductController
         ));
 
     }
+
+
 }

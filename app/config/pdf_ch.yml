@@ -1,0 +1,6 @@
+jobmanager_main_bundle_cv_generate_pdf:
+    path: /cv/
+    defaults: { _controller: BookController }
+    requirements:
+        _method: GET
+

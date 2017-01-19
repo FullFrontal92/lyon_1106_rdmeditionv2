@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
             new \FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
+            new \Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         ];
 
         return array_merge(parent::registerBundles(), $bundles);
