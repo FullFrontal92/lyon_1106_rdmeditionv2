@@ -85,3 +85,12 @@ stof_doctrine_extensions:
     orm:
         default:
             timestampable: true
+
+#kpn PDF  parameters
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     wkhtmltopdf
+        options:
+            - { name: 'viewport-size', value: ‘1024x768’ }
+            - { name: 'page-size', value: 'A4' }
