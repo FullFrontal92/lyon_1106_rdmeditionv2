@@ -24,23 +24,14 @@ class BookController extends BaseProductController
 
     public function generalConditions()
     {
+        $this->get('knp_snappy.pdf')->generateFromHtml(
+            $this->renderView(
+                'SyliusShopBundle::layout.html.twig'),
+            'web/img/test.pdf'
+
+            );
+
         return $this->render('SyliusShopBundle:Homepage:generalConditions.html.twig');
-    }
-
-    public function generateAction()
-    {
-        $html = $this->renderView('',
-            array('form' => $form->createView(),
-            ));
-
-        return new Response(
-            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-            200,
-            array(
-                'Content-Type'          => 'application/pdf',
-                'Content-Disposition'   => 'attachment; filename="recap.pdf"'
-            )
-        );
     }
 
     public function aboutUs(Request $request)
