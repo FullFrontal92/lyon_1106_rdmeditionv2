@@ -11,6 +11,8 @@
 /app/config/*.local.yml
 
 /web/assets
+!/web/assets/shop/js/app.js
+
 /web/bundles
 
 /web/media
