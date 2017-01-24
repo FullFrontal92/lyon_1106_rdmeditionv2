@@ -2,7 +2,6 @@
 
 {% form_theme form '@SyliusUi/Form/theme.html.twig' %}
 
-{% import '@SyliusUi/Macro/headers.html.twig' as headers %}
 {% import '@SyliusUi/Macro/messages.html.twig' as messages %}
 
 {% set header = 'sylius.ui.your_shopping_cart' %}
@@ -10,11 +9,14 @@
 {% block title %}{{ parent() }} | {{ header|trans }}{% endblock %}
 
 {% block content %}
+
     {% if cart.empty %}
+    <div class="contents container">
         {{ messages.info('sylius.ui.your_cart_is_empty'|trans) }}
+    </div>
     {% else %}
         <div class="ui hidden divider"></div>
-        <div class="ui two column relaxed stackable grid">
+        <div class="ui two column relaxed stackable grid container contents ">
             <div class="column">
                 {{ headers.default(header|trans, 'cart', 'sylius.ui.edit_your_items_apply_coupon_or_proceed_to_the_checkout'|trans) }}
             </div>
@@ -27,7 +29,7 @@
                 </form>
             </div>
         </div>
-        <div class="ui stackable grid">
+        <div class="ui stackable grid container">
             <div class="eleven wide column">
                 {% include '@SyliusShop/Cart/Summary/_items.html.twig' %}
             </div>
