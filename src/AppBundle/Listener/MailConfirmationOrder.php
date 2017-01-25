@@ -4,12 +4,11 @@ namespace AppBundle\Listener;
 
 use AppBundle\Entity\Order;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
-use Sylius\Component\Shipping\Model\Shipment;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Twig_Template;
 
 class MailConfirmationOrder
 {
+
     private $mailer;
     private $container;
     private $knp;
@@ -22,11 +21,6 @@ class MailConfirmationOrder
         $this->templating = $container->get('templating');
         $this->knp = $container->get('knp_snappy.pdf');
     }
-    /*
-    public function __construct(ContainerInterface $container, Templating $twig_Template )
-    {
-        $this->container = $container;
-    }*/
 
     public function preUpdate(LifecycleEventArgs $args)
     {

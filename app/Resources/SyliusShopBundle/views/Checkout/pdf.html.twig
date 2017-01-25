@@ -1,13 +1,22 @@
-{% extends '@SyliusShop/Checkout/layout.html.twig' %}
+<!DOCTYPE html>
 
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Rdm e-ditions{% endblock %}</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="{{ asset('assets/shop/css/style.css') }}">
+</head>
 
-{% block content %}
-
+<body>
+<div class="ui container">
+<div class="container">
     <!-- '@SyliusShop/Checkout/_header.html.twig' -->
     <div class="ui basic segment">
         <div class="ui large text menu">
             <div class="ui small image">
-                <a href="{{ path('sylius_shop_homepage') }}"><img src="{{ asset('assets/shop/img/logo.png') }}" /></a>
+                <img src="{{ asset("assets/shop/img/logo.png") }}" />
             </div>
         </div>
     </div>
@@ -19,16 +28,6 @@
             <i class="circular cart icon"></i>
             <div class="content">
                 {{ 'Récapitulatif de votre commande'|trans }}
-                <div class="sub header">
-                    <div class="ui horizontal divided list">
-                        <div class="item" id="sylius-order-currency-code">
-                            {{ order.currencyCode }}
-                        </div>
-                        <div class="item" id="sylius-order-locale-name">
-                            {{ order.localeCode }}{{ order.localeCode|locale }}
-                        </div>
-                    </div>
-                </div>
             </div>
         </h1>
 
@@ -138,6 +137,11 @@
             </div>
         </div>
     </div>
-{% endblock %}
 
+    <div class="ui hidden divider">
+    </div>
+</div>
+
+</body>
+</html>
 

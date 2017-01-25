@@ -83,6 +83,11 @@ sylius_mailer:
     sender:
         name: RDM e-ditions
         address: "%mailer_user%"
+    emails:
+        order_confirmation:
+            enabled: false
+        recap_to_send:
+            enabled: false
 
 
 stof_doctrine_extensions:
