@@ -2,4 +2,3 @@ AppBundle\Entity\Order:
     type: entity
     table: sylius_order
     lifecycleCallbacks:
-        postUpdate: [ sendEmailConfirmationOrder ]
