@@ -243,9 +243,12 @@ footer a:hover {
 }
 
 .registerfontsize{
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .fontsizelogin{
-    font-size: 17px;
+    font-size: 16px;
+}
+h4.ui.header{
+    font-size: 1.6rem;
 }

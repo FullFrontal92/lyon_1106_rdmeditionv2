@@ -6,10 +6,12 @@
 .bookArray .tableDescri p {
     /*text-align: justify;*/
     margin-bottom: 5px;
+    padding-top: 10px;
 }
 
 .bookArray .bookTitle h2 {
     margin-top: 0;
+    padding-left: 10px;
 }
 
 .bookArray .relDate p {
@@ -59,8 +61,7 @@
     padding: 2px;
     margin-bottom: 10px;
     margin-right: 10px;
-    margin-top: 8px;
-    border: 1px solid black;
+    margin-top: 20px;
     text-decoration: none;
     color: black;
     text-align: center;
@@ -79,6 +80,11 @@
 
 .bookArray .celDescri {
     margin-left: 10px;
+}
+
+.priceDescri{
+    padding-bottom: 40px;
+    padding-left: 30px;
 }
 
 @media only screen and (max-width: 767px) {
