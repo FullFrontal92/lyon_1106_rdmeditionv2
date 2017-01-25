@@ -45,7 +45,7 @@ class MailConfirmationOrder
        }
         $this->knp->generateFromHtml(
             $this->templating->render(
-                'SyliusCoreBundle:Email:pdf.html.twig',
+                'SyliusShopBundle:Checkout:pdf.html.twig',
                 array('order' => $entity,
                     'product'  => $entity->getItems(),
                     'client'  => $entity->getUser(),
@@ -55,7 +55,7 @@ class MailConfirmationOrder
             $generatedPdfFilename
         );
 
-      $test =  $this->templating->render('SyliusCoreBundle:Email:pdf.html.twig',
+      $test =  $this->templating->render('SyliusShopBundle:Checkout:pdf.html.twig',
             array(
                 'order' => $entity,
                 'product'  => $entity->getItems(),
