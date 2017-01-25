@@ -241,3 +241,11 @@ footer a:hover {
 .panier, .basketIcon{
     height: 30px;
 }
+
+.registerfontsize{
+    font-size: 17px;
+}
+
+.fontsizelogin{
+    font-size: 17px;
+}
