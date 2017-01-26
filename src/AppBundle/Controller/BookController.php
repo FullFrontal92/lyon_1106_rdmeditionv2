@@ -3,7 +3,6 @@ namespace AppBundle\Controller;
 
 
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController as BaseProductController;
-
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;

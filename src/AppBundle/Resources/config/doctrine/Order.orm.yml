@@ -1,0 +1,8 @@
+AppBundle\Entity\Order:
+    type: entity
+    table: sylius_order
+    fields:
+        emailsend:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks:

@@ -70,7 +70,6 @@
     margin-top: auto !important;
     margin-bottom: auto !important;
     transition: 0.3s ease;
-    text-align: center
 }
 
 .navbar-toggle {
@@ -91,11 +90,10 @@
     background-color: inherit;
 }
 
-@media only screen and (min-width: 1100px) {
+@media only screen and (min-width: 768px) {
     .navbar-nav {
         padding-right: 30px !important;
         padding-top: 100px;
-        text-align: center;
     }
 
 
@@ -188,7 +186,7 @@
     right: 0px!important;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 767px) {
     .navbar-brand img {
         height: 60px;
         width: auto;
@@ -207,7 +205,7 @@
     }
 
     .navbar-default .navbar-nav {
-        padding-top: 28px;
+        padding-top: 10px;
     }
     
 
@@ -224,6 +222,7 @@ footer {
     box-shadow: 0 -1px 5px #ededed;
     background-color: #fff;
     padding: 20px 0;
+    margin-top: 50px;
 }
 
 .footerDiv {
@@ -244,16 +243,3 @@ footer a:hover {
     height: 30px;
 }
 
-.registerfontsize{
-    font-size: 16px;
-}
-
-.fontsizelogin{
-    font-size: 16px;
-}
-h4.ui.header{
-    font-size: 1.6rem;
-}
-.bookqauntity{
-    padding-right: 50px;
-}
