@@ -10,7 +10,7 @@ class MailConfirmationOrder
 {
 
     private $mailer;
-    private $container;
+    protected $container;
     private $knp;
     private $templating;
 
@@ -24,14 +24,16 @@ class MailConfirmationOrder
 
     public function preUpdate(LifecycleEventArgs $args)
     {
+
         $entity = $args->getObject();
 
         if (!$entity instanceof Order) {
             return;
         }
-        if($entity->getShippingState() != "ready"){
+        if ($entity->getEmailsend() == 1 or $entity->getShippingState() != "ready") {
             return;
         }
+
        $generatedPdfFilename = $this->container->get('kernel')->getRootDir() . '/Resources/SyliusShopBundle/views/Facture.pdf';
         // delete the pdf is one already exist
        if(file_exists($generatedPdfFilename)){
@@ -41,22 +43,30 @@ class MailConfirmationOrder
             $this->templating->render(
                 'SyliusShopBundle:Checkout:pdf.html.twig',
                 array('order' => $entity,
-                    'product'  => $entity->getItems(),
-                    'client'  => $entity->getUser(),
-                    'total' => $entity->getPayments()
                 )
             ),
             $generatedPdfFilename
         );
 
-      $test =  $this->templating->render('SyliusShopBundle:Checkout:pdf.html.twig',
-            array(
-                'order' => $entity,
-                'product'  => $entity->getItems(),
-                'client'  => $entity->getUser(),
-                'total' => $entity->getPayments()
-            )
-        );
-        die($test);
+
+        $mailFrom = $this->container->getParameter("mailer_user");
+        $mailTo = $entity->getUser()->getEmailCanonical();
+        $message = \Swift_Message::newInstance();
+        $message
+            ->setSubject('RDM e-ditions : Confirmation commande')
+            ->setFrom($mailFrom)
+            ->setTo($mailTo)
+            ->setBody(
+            $this->templating->render(
+            'SyliusCoreBundle:Email:orderConfirmation.html.twig',
+            array('order' => $entity
+            )),
+                'text/html'
+        )
+            ->attach(\Swift_Attachment::fromPath($generatedPdfFilename));
+        $this->mailer->send($message);
+
+        $entity->setEmailsend(true);
+
     }
 }
