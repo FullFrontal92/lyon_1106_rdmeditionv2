@@ -96,7 +96,7 @@
     }
 
     .bookArray .tableImg img {
-        margin: 0px 0px 0px 0px;
+        margin: 30px 0px 0px 0px;
         box-shadow: 5px 5px 5px 0px #656565;
         height: auto;
         width: auto;
@@ -106,9 +106,10 @@
     .bookArray .tableDescri {
         border: hidden;
         overflow: hidden;
-        height: 0px;
+        height: 100px;
         font-size: 13px;
         width: 100%;
+
     }
 
     .bookArray .celDescri h2 {
@@ -116,16 +117,15 @@
         font-weight: bold;
     }
     .responsiveCart{
-        padding-top: 40px;
-        width: 130px;
+        padding-top: 20px;
+        width: 200px;
     }
 
-    .bookArray .tableImg{
-        padding-bottom: 300px;
+    .bookquantityhidden{
+        display: none;
     }
-
-    .priceDescri{
-        padding-left: 100px;
+    .bookArray .btn_more{
+        padding-top: 10px;
     }
 }
 
