@@ -1,6 +1,6 @@
 .bookArray{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .bookArray .tableDescri p {
@@ -92,11 +92,11 @@
         background: linear-gradient(135deg, white, white);
         width: 100px;
         height: auto;
-        padding-bottom: 300px;
+        padding-bottom: 260px;
     }
 
     .bookArray .tableImg img {
-        margin: 30px 0px 0px 0px;
+        margin: 40px 0px 0px 0px;
         box-shadow: 5px 5px 5px 0px #656565;
         height: auto;
         width: auto;
@@ -113,19 +113,23 @@
     }
 
     .bookArray .celDescri h2 {
-        font-size: 16px;
+        font-size: 20px;
         font-weight: bold;
     }
     .responsiveCart{
         padding-top: 20px;
+        padding-left: 20px;
         width: 200px;
     }
 
     .bookquantityhidden{
         display: none;
     }
-    .bookArray .btn_more{
-        padding-top: 10px;
+
+    .priceresponsive{
+        padding-right: 40px;
+        position: absolute;
+
     }
 }
 

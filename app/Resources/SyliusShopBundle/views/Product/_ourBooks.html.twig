@@ -32,15 +32,17 @@
 
                             <div class="col-xs-5 col-xs-offset-1 responsiveCart">
                                 {% include 'SyliusShopBundle::Product/Show/CartOurBooks/_inventoryOurBooks.html.twig' %}
+                                <div>
+                                    <p class="pull-left">{{ product.price|sylius_price }}</p>
+                                </div>
                             </div>
 
                             <div class="row">
+
                                 <a class="btn_more" href="{{ path('sylius_shop_product_show', {'slug': product.slug }) }}">En Savoir +
                                 </a>
                             </div>
-                            <div class=" col-xs-2 ">
-                                <p>{{ product.price|sylius_price }}</p>
-                            </div>
+
                         </div>
                     </td>
                 </tr>
