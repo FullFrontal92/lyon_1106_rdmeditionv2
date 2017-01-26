@@ -9,13 +9,23 @@ parameters:
     # database_path: "%kernel.root_dir%/data.db3"
 
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
+    mailer_host: smtp.gmail.com
     mailer_user: ~
     mailer_password: ~
 
     secret: EDITME
-    locale: en_US
-    currency: USD
+    locale: fr_FR
+    currency: EUR
+
+    paypal.express_checkout.username: ~
+    paypal.express_checkout.password: ~
+    paypal.express_checkout.signature: ~
+    paypal.express_checkout.sandbox: ~
+
+    payum_username: ~
+    payum_password: ~
+    payum_signature: ~
 
     wkhtmltopdf.bin_path: /usr/bin/wkhtmltopdf
     wkhtmltoimage.bin_path: /usr/bin/wkhtmltoimage
+

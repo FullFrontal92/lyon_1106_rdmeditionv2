@@ -2,13 +2,8 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\AppBundle;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use Symfony\Component\HttpFoundation\Response;
-use Guzzle\Http\Message\Request;
 use  Sylius\Component\Core\Model\Product as BaseProduct;
-use Sylius\Component\Product\Model\ProductTranslation;
-//use Sylius\Component\Core\Model\ProductTranslation;
 
 class Product extends BaseProduct
 {

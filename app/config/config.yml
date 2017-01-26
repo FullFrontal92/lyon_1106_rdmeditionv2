@@ -74,14 +74,32 @@ sylius_product:
             classes:
                 model: AppBundle\Entity\Product
                 controller: AppBundle\Controller\BookController
-
+sylius_order:
+    resources:
+        order:
+            classes:
+                model: AppBundle\Entity\Order
 sylius_mailer:
     sender:
         name: RDM e-ditions
         address: "%mailer_user%"
+    emails:
+        order_confirmation:
+            enabled: false
+        recap_to_send:
+            enabled: false
 
 
 stof_doctrine_extensions:
     orm:
         default:
             timestampable: true
+
+#kpn PDF  parameters
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     wkhtmltopdf
+        options:
+            - { name: 'viewport-size', value: ‘1024x768’ }
+            - { name: 'page-size', value: 'A4' }

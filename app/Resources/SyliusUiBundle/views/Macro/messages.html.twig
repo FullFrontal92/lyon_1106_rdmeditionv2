@@ -1,14 +1,16 @@
 {% macro default(message, icon, type, header) %}
-    <div class="ui icon {{ type|default('') }} message">
+    <div class="container contents">
+    <div class="ui icon {{ type|default('') }} message ">
         <i class="{{ icon }} icon"></i>
         <div class="content">
             {% if type is not empty %}
-            <div class="header">
+            <div class="">
                 {{ header|default(type)|trans }}
             </div>
             {% endif %}
             <p>{{ message|trans }}</p>
         </div>
+    </div>
     </div>
 {% endmacro %}
 
