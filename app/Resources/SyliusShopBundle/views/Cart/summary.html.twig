@@ -7,7 +7,7 @@
 
 {% set header = 'sylius.ui.your_shopping_cart' %}
 
-{% block title %}{{ parent() }} | {{ header|trans }}{% endblock %}
+
 
 {% block content %}
     {% if cart.empty %}
@@ -36,5 +36,6 @@
                 {% include '@SyliusShop/Cart/Summary/_checkout.html.twig' %}
             </div>
         </div>
+        {% block title %}{{ parent() }} | {{ header|trans }}{% endblock %}
     {% endif %}
 {% endblock %}

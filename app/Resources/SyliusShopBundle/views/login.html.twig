@@ -4,6 +4,10 @@
 
 {% import 'SyliusUiBundle:Macro:messages.html.twig' as messages %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/text.css') }}">
+{% endblock %}
+
 {% block content %}
     {% include '@SyliusShop/Login/_header.html.twig' %}
     <div class="ui padded segment container">
@@ -29,7 +33,7 @@
                     {{ 'sylius.ui.create_an_account'|trans }}
 
                 </a>
-                <h5>(Vous êtes libraire contactez-nous !)</h5>
+                <p>(Vous êtes libraire contactez-nous !)</p>
             </div>
         </div>
     </div>

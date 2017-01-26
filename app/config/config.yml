@@ -86,15 +86,22 @@ sylius_product:
                 model: AppBundle\Entity\Product
                 controller: AppBundle\Controller\BookController
 
+
+
 sylius_mailer:
     sender:
         name: RDM e-ditions
         address: "%mailer_user%"
 
     emails:
-            recap_to_send:
-                subject: Votre commande à été enregistré envoyé le récapitualif à l'adresse de RDM'Editions
-                template: SyliusShopBundle:Checkout/complete.html.twig
+        order_confirmation:
+            subject: sylius.emails.order_confirmation.subject
+            template: SyliusCoreBundle:Email:orderConfirmation.html.twig
+            enabled: false
+        recap_to_send:
+                    subject: Votre commande à été enregistré envoyé le récapitualif à l'adresse de RDM'Editions
+                    template: SyliusShopBundle:Checkout/complete.html.twig
+                    enabled: false
 
 
 stof_doctrine_extensions:

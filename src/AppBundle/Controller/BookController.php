@@ -26,7 +26,7 @@ class BookController extends BaseProductController
     {
         $this->get('knp_snappy.pdf')->generateFromHtml(
             $this->renderView(
-                'SyliusShopBundle::layout.html.twig'),
+                'SyliusShopBundle:Cart:summary.html.twig'),
             'web/img/test.pdf'
 
             );

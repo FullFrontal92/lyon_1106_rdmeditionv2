@@ -243,3 +243,11 @@ footer a:hover {
 .panier, .basketIcon{
     height: 30px;
 }
+
+.ui.loading.form::after {
+    position: absolute;
+    content: 'none';
+    visibility: hidden;
+    z-index: 0;
+}
+
