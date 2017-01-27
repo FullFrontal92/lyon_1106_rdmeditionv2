@@ -3,9 +3,9 @@ payum:
         paypal_express_checkout:
             factory: "paypal_express_checkout"
             payum.http_client: "@sylius.payum.http_client"
-            username: "%payum_username%"
-            password: "%payum_password%"
-            signature: "%payum_signature%"
+            username: "%paypal.express_checkout.username%"
+            password: "%paypal.express_checkout.password%"
+            signature: "%paypal.express_checkout.signature%"
             sandbox: "%paypal.express_checkout.sandbox%"
 
 sylius_payment:

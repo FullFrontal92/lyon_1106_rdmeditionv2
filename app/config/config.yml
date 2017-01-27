@@ -50,17 +50,6 @@ swiftmailer:
     password: "%mailer_password%"
     spool: { type: memory }
 
-
-knp_snappy:
-    pdf:
-        enabled:    true
-        binary:     /usr/local/bin/wkhtmltopdf
-
-        options:
-            - { name: 'viewport-size', value: ‘1024x768’ }
-            - { name: 'page-size', value: 'A4' }
-
-
 ewz_recaptcha:
     public_key:  6LfsgwoUAAAAANDWpHKY_GtsjsXG7XbDs4eamLSb
     private_key: 6LfsgwoUAAAAAC3U0zxz8fwq0eBL6vQUG7WXq0Cd
@@ -85,26 +74,35 @@ sylius_product:
             classes:
                 model: AppBundle\Entity\Product
                 controller: AppBundle\Controller\BookController
-
-
-
+sylius_order:
+    resources:
+        order:
+            classes:
+                model: AppBundle\Entity\Order
 sylius_mailer:
     sender:
         name: RDM e-ditions
         address: "%mailer_user%"
-
     emails:
         order_confirmation:
-            subject: sylius.emails.order_confirmation.subject
-            template: SyliusCoreBundle:Email:orderConfirmation.html.twig
             enabled: false
         recap_to_send:
-                    subject: Votre commande à été enregistré envoyé le récapitualif à l'adresse de RDM'Editions
-                    template: SyliusShopBundle:Checkout/complete.html.twig
-                    enabled: false
+            enabled: false
 
 
 stof_doctrine_extensions:
     orm:
         default:
             timestampable: true
+
+
+
+
+#kpn PDF  parameters
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     wkhtmltopdf
+        options:
+            - { name: 'viewport-size', value: ‘1024x768’ }
+            - { name: 'page-size', value: 'A4' }
