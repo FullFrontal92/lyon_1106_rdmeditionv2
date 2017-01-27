@@ -125,18 +125,31 @@
     }
     .block_text h2, .block_text h3, .block_text p{
         text-align: right;
+        font-size: 12px;
     }
     .title_publish{
         margin-right: 10px;
         margin-left: 10px;
     }
+    .btn_more{
+        margin-top: -13px;
+        height: 20px;
+        font-size: 8px;
+        border:1px solid black;
+        color: black;
+        -webkit-transition: background 0.1s, color 0.3s;
+        -moz-transition: background 0.1s, color 0.3s;
+        -o-transition: background 0.1s, color 0.3s;
+        transition: background 0.3s, color 0.3s;
 
+        }
 }
 
 /* CART */
 
 .panier{
     height: 35px;
+    text-align: center;
 }
 
 #sylius-product-selecting-variant

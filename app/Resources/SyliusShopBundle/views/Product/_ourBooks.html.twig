@@ -26,19 +26,19 @@
                                 </div>
 
                             </div>
-                            <div class="tableDescri">
+                            <div class=" col-xs-5 tableDescri">
                                 <p>{{ product.description[:200]|raw }}...</p><br/>
                             </div>
 
-                            <div class="col-xs-2 priceDescri">
-                                <p>{{ product.price|sylius_price }}</p>
-                            </div>
-
-                            <div class="col-xs-10">
+                            <div class="col-xs-5 col-xs-offset-1 responsiveCart">
                                 {% include 'SyliusShopBundle::Product/Show/CartOurBooks/_inventoryOurBooks.html.twig' %}
+                                <div>
+                                    <p class="pull-left">{{ product.price|sylius_price }}</p>
+                                </div>
                             </div>
 
                             <div class="row">
+
                                 <a class="btn_more" href="{{ path('sylius_shop_product_show', {'slug': product.slug }) }}">En Savoir +
                                 </a>
                             </div>
