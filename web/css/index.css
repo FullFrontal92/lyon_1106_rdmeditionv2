@@ -142,6 +142,9 @@
         -o-transition: background 0.1s, color 0.3s;
         transition: background 0.3s, color 0.3s;
 
+
+
+
         }
 }
 
@@ -170,6 +173,7 @@
 .basketIcon {
     background-image: url('/web/img/panier.png');
     border: 50px solid red;
+
 }
 
 .block_global{

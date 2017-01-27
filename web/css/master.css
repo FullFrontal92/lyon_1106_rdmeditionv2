@@ -70,7 +70,8 @@
     margin-top: auto !important;
     margin-bottom: auto !important;
     transition: 0.3s ease;
-    text-align: center
+
+    text-align: center;
 }
 
 .navbar-toggle {
@@ -95,8 +96,8 @@
     .navbar-nav {
         padding-right: 30px !important;
         padding-top: 100px;
+        text-align: center;
     }
-
 
 }
 
