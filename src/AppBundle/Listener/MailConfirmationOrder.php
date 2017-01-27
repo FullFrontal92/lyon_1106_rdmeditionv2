@@ -34,8 +34,7 @@ class MailConfirmationOrder
             return;
         }
 
-
-       $generatedPdfFilename = $this->container->get('kernel')->getRootDir() . '/Resources/SyliusShopBundle/views/Facture.pdf';
+        $generatedPdfFilename = $this->container->get('kernel')->getRootDir() . '/Resources/SyliusShopBundle/views/Facture.pdf';
         // delete the pdf is one already exist
        if(file_exists($generatedPdfFilename)){
             unlink($generatedPdfFilename);
@@ -48,6 +47,7 @@ class MailConfirmationOrder
             ),
             $generatedPdfFilename
         );
+
 
 
         $mailFrom = $this->container->getParameter("mailer_user");
@@ -69,8 +69,5 @@ class MailConfirmationOrder
 
         $entity->setEmailsend(true);
 
-        if(file_exists($generatedPdfFilename)){
-            unlink($generatedPdfFilename);
-        }
     }
 }
