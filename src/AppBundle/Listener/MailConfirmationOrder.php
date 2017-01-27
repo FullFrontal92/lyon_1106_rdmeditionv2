@@ -51,7 +51,7 @@ class MailConfirmationOrder
 
 
         $mailFrom = $this->container->getParameter("mailer_user");
-        $mailTo = $entity->getUser()->getEmailCanonical();
+        $mailTo = $entity->getCustomer()->getEmailCanonical();
         $message = \Swift_Message::newInstance();
         $message
             ->setSubject('RDM e-ditions : Confirmation commande')
