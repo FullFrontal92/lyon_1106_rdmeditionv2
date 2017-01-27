@@ -34,8 +34,7 @@ class MailConfirmationOrder
             return;
         }
 
-
-       $generatedPdfFilename = $this->container->get('kernel')->getRootDir() . '/Resources/SyliusShopBundle/views/Facture.pdf';
+        $generatedPdfFilename = $this->container->get('kernel')->getRootDir() . '/Resources/SyliusShopBundle/views/Facture.pdf';
         // delete the pdf is one already exist
        if(file_exists($generatedPdfFilename)){
             unlink($generatedPdfFilename);
@@ -50,8 +49,9 @@ class MailConfirmationOrder
         );
 
 
+
         $mailFrom = $this->container->getParameter("mailer_user");
-        $mailTo = $entity->getUser()->getEmailCanonical();
+        $mailTo = $entity->getCustomer()->getEmailCanonical();
         $message = \Swift_Message::newInstance();
         $message
             ->setSubject('RDM e-ditions : Confirmation commande')
@@ -69,8 +69,5 @@ class MailConfirmationOrder
 
         $entity->setEmailsend(true);
 
-        if(file_exists($generatedPdfFilename)){
-            unlink($generatedPdfFilename);
-        }
     }
 }
