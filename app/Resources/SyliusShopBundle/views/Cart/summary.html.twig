@@ -16,6 +16,7 @@
         <div class="ui hidden divider"></div>
         <div class="ui two column relaxed stackable grid container">
             <div class="column">
+               {{ headers.default(header|trans, 'cart', 'sylius.ui.edit_your_items_apply_coupon_or_proceed_to_the_checkout'|trans) }}
             </div>
             <div class="middle aligned column container">
                 <form method="post" action="{{ path('sylius_shop_cart_clear') }}" >
