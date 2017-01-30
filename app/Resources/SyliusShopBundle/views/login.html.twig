@@ -7,9 +7,9 @@
 {% block content %}
     {% include '@SyliusShop/Login/_header.html.twig' %}
     <div class="ui padded segment container">
-        <div class="ui two column very relaxed stackable grid">
-            <div class="column">
-                <h4 class="ui dividing header">{{ 'sylius.ui.registered_customers'|trans }}</h4>
+        <div class="ui two column very relaxed stackable grid fontsizelogin growingLogin">
+            <div class="column growingLogin">
+                <h4 class="ui dividing header ">{{ 'sylius.ui.registered_customers'|trans }}</h4>
                 <p>{{ 'sylius.ui.if_you_have_an_account_sign_in_with_your_email_address'|trans }}.</p>
                 {{ form_start(form, {'action': path('sylius_shop_login_check'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
                     {% if last_error %}
@@ -29,7 +29,7 @@
                     {{ 'sylius.ui.create_an_account'|trans }}
 
                 </a>
-                <h5>(Vous êtes libraire contactez-nous !)</h5>
+                <p>(Vous êtes libraire contactez-nous !)</p>
             </div>
         </div>
     </div>

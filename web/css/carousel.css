@@ -91,13 +91,13 @@
 .stamp {
     z-index: 50;
     position: absolute;
-    left:-100px;
-    top: 50px;
+    left:-60px;
+    top: 70px;
     text-align: center;
     color: white;
     font-size: 1.1em!important;;
     background-color: #5D1C43;
-    -ms-transform: rotate(-45deg);
+    -ms-transform: rotate(-40deg);
     -webkit-transform: rotate(-40deg);
     transform: rotate(-40deg);
 }
@@ -123,9 +123,22 @@
     #carousel .title-container p{
         font-size: 1.3em;
     }
+    .stamp {
+        z-index: 50;
+        position: absolute;
+        left:-20px;
+        top: 60px;
+        text-align: center;
+        color: white;
+        font-size: 1.1em!important;;
+        background-color: #5D1C43;
+        -ms-transform: rotate(-45deg);
+        -webkit-transform: rotate(-40deg);
+        transform: rotate(-40deg);
+    }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
     #carousel .img-container{
         height: 60px;
         width: 60px;
@@ -143,7 +156,38 @@
     #carousel .title-container p{
         font-size: 0.75em;
     }
+    .stamp {
+        z-index: 50;
+        position: absolute;
+        left:-25px;
+        top: -25px;
+        text-align: center;
+        color: white;
+        font-size: 1.1em!important;;
+        background-color: #5D1C43;
+        -ms-transform: rotate(-65deg);
+        -webkit-transform: rotate(-40deg);
+        transform: rotate(-40deg);
+    }
 
+    #stamper {
+        min-width: 10rem;
+    }
+
+    .stamp {
+        z-index: 50;
+        position: absolute;
+        text-align: center;
+        width: auto;
+        top:2px;
+        left: -2px;
+        color: white;
+        font-size: 1.1em!important;;
+        background-color: #5D1C43;
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
 }
 
 
@@ -156,4 +200,22 @@
     #carousel .title-container{
         border-left: none;
     }
+
+    .stamp {
+        z-index: 50;
+        position: absolute;
+        text-align: center;
+        width: auto;
+        top:2px;
+        right: 2px;
+        padding-left: 40px;
+        color: white;
+        font-size: 1.1em!important;;
+        background-color: #5D1C43;
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+       }
+
 }
+
