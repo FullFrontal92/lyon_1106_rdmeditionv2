@@ -16,7 +16,7 @@ final class ProductTypeExtension extends AbstractTypeExtension
     {
         $builder->add('author', TextType::class, [
             'required' => true,
-            'label' => 'Autheur',
+            'label' => 'Auteur',
         ]);
         $builder->add('releaseDate', DateType::class, [
             'widget' => 'single_text',
