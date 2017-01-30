@@ -50,11 +50,9 @@
                 <div id="stamper" class="col-xs-4">
                     {% if carProduct.preOrder == true %}
                         <p class="stamp col-xs-12">Pré-commande</p>
-                    {% endif %}
-                    {% if carProduct.new == true and carProduct.preOrder == (null or false)and carProduct.promo == (null or false)  %}
+                    {% elseif carProduct.new == true %}
                         <p class="stamp col-xs-12">Nouveauté</p>
-                    {% endif %}
-                    {% if carProduct.promo == true  and carProduct.preOrder == (null or false) and carProduct.new == (null or false) %}
+                    {% elseif carProduct.promo == true %}
                         <p class="stamp col-xs-12">Promotion</p>
                     {% endif %}
 
