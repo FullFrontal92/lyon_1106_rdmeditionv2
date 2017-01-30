@@ -153,3 +153,10 @@ hr{
 
 
 }
+
+@media screen and (max-width: 650px) {
+    .tableDescri {
+    font-size: 12px;
+    }
+
+}

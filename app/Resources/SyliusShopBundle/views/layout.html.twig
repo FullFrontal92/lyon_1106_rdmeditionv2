@@ -26,9 +26,10 @@
 <!-- HEADER -->
 {% include 'SyliusShopBundle::/Homepage/_header.html.twig' %}
 
-{% include '@SyliusUi/_flashes.html.twig' %}
+
 
 <div id="content">
+    {% include '@SyliusUi/_flashes.html.twig' %}
     {% block content %}
     {% endblock %}
 </div>
