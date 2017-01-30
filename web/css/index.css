@@ -179,3 +179,9 @@
 .block_global{
     margin-top: 75px;
 }
+
+@media only screen and (max-width: 769px) {
+    .block_global{
+        margin-top: 110px;
+    }
+}
