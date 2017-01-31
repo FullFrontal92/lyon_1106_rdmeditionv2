@@ -49,13 +49,11 @@
             <div class="item row">
                 <div id="stamper" class="col-xs-4">
                     {% if carProduct.preOrder == true %}
-                        <p class="stamp col-xs-10">Pré-commande</p>
-                    {% endif %}
-                    {% if carProduct.new == true  %}
-                        <p class="stamp col-xs-10">Nouveauté</p>
-                    {% endif %}
-                    {% if carProduct.promo == true %}
-                        <p class="stamp col-xs-10">Promotion</p>
+                        <p class="stamp col-xs-12">Pré-commande</p>
+                    {% elseif carProduct.new == true %}
+                        <p class="stamp col-xs-12">Nouveauté</p>
+                    {% elseif carProduct.promo == true %}
+                        <p class="stamp col-xs-12">Promotion</p>
                     {% endif %}
 
                     <div class="img-container">
@@ -64,7 +62,7 @@
                 </div>
                 <div class="col-xs-8">
                     <div class="title-container">
-                        <p>
+                        <p class="text_carousel">
                             <span class="quote">"</span>
                             {{ carProduct.name }}
                             <span class="quote">"</span>

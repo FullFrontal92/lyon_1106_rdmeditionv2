@@ -32,10 +32,13 @@
                 <h1>{{ product.name }}</h1>
                 <p class="description">{{ product.description|raw }}</p>
             </div>
-            <div class="col-md-offset-4 col-md-4">
-                {% include '@SyliusShop/Product/Show/_price.html.twig' %}
-
-                {% include 'SyliusShopBundle::Product/Show/CartOurBooks/_inventoryOurBooks.html.twig' %}
+            <div class="row showCart">
+                <div class="col-md-2 col-xs-4 col-xs-offset-1 productPrice">
+                    {% include '@SyliusShop/Product/Show/_price.html.twig' %}
+                </div>
+                <div class="col-md-2 col-xs-4 col-xs-offset-1">
+                    {% include 'SyliusShopBundle::Product/Show/CartOurBooks/_inventoryOurBooks.html.twig' %}
+                </div>
             </div>
         </div>
         <div class="row">
@@ -52,8 +55,10 @@
                 </table><br />
             </div>
             {% if product.facebook %}
-                <div class="col-md-offset-4 col-md-4 button-facebook">
-                    <a href="{{ product.facebook }}" target="_blank">Page Facebook</a>
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-4 button-facebook">
+                        <a href="{{ product.facebook }}" target="_blank">Page Facebook</a>
+                    </div>
                 </div>
             {% endif %}
         </div>

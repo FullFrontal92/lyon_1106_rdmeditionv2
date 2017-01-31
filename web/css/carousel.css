@@ -28,11 +28,16 @@
 
 #carousel .title-container p{
     color: white;
-    font-size: 2.2em;
     padding: 0 20%;
     text-align: right;
 }
 
+#carousel .title-container .text_carousel {
+    font-size: 2.2em;
+}
+#carousel .title-container .carousel_event {
+   font-size:  1.8em;
+}
 .carousel-indicators{
     bottom: 0;
 }
@@ -120,13 +125,13 @@
         border-left: none;
     }
 
-    #carousel .title-container p{
+    #carousel .title-container .text_carousel {
         font-size: 1.3em;
     }
     .stamp {
         z-index: 50;
         position: absolute;
-        left:-20px;
+        right: -80px;
         top: 60px;
         text-align: center;
         color: white;
@@ -135,6 +140,12 @@
         -ms-transform: rotate(-45deg);
         -webkit-transform: rotate(-40deg);
         transform: rotate(-40deg);
+    }
+    .text_carousel {
+        margin-top: -25px!important;
+    }
+    #carousel .title-container .carousel_event {
+        font-size: 0.9em;
     }
 }
 
@@ -153,14 +164,17 @@
         height: 60px;
     }
 
-    #carousel .title-container p{
-        font-size: 0.75em;
+    #carousel .title-container .text_carousel{
+        font-size: 0.7em;
+    }
+    #carousel .title-container .carousel_event {
+        font-size: 0.6em;
     }
     .stamp {
         z-index: 50;
         position: absolute;
-        left:-25px;
         top: -25px;
+        right: -60px;
         text-align: center;
         color: white;
         font-size: 1.1em!important;;
@@ -188,6 +202,9 @@
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
+    .carousel_event {
+        font-size: 1em;
+    }
 }
 
 
@@ -207,7 +224,7 @@
         text-align: center;
         width: auto;
         top:2px;
-        right: 2px;
+        right: -80px;
         padding-left: 40px;
         color: white;
         font-size: 1.1em!important;;
