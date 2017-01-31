@@ -160,3 +160,13 @@ hr{
     }
 
 }
+
+/* Cart */
+
+.showCart {
+    text-align: center;
+}
+
+.productPrice {
+    margin-top: 30px;
+}
