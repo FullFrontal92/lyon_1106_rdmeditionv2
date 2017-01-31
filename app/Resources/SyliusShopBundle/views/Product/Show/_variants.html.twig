@@ -12,7 +12,7 @@
             <td>
                 {{ variant.name }}
                 {% if product.hasOptions() %}
-                    <div class="ui horizontal divided list">
+                    <div class="ui horizontal divided list bookqauntity">
                         {% for optionValue in variant.optionValues %}
                             <div class="item">
                                 {{ optionValue.value }}

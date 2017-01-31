@@ -11,4 +11,3 @@ payum:
 sylius_payment:
     gateways:
         paypal_express_checkout: Paypal Express Checkout
-
