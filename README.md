@@ -7,7 +7,7 @@ This project was developped using Symfony2.8, [checkout the Symfony requirements
 We recommend to run this project with the **Linux** System and an Apache server. Checkout the [Lamp stack.](https://doc.ubuntu-fr.org/lamp)
 ### Follow the next instructions to install the project
 ```
-$ git clone https://github.com/WildCodeSchool/lyon_1106_rdmeditionv2.git
+$ git clone https://github.com/WildCodeSchool/lyon_1106_rdmeditionv2.git RepositoryName
 ```
 ```
 $ sudo apt-get install php7.0-intl php7.0-mbstring  php7.0-gd php7.0-exif php7.0-fileinfo
@@ -32,6 +32,8 @@ date.timezone = Europe/Paris    (around lines 920)
 ```
 $ composer install
 ```
+##### Configure your parameters in the **app/config/parameters.yml**
+##### You can check all parameters need into **/app/config/parameters.yml.dist**
 ``` 
 $ npm install
 ```
