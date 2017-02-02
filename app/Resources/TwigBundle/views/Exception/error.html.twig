@@ -1,0 +1,16 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block content %}
+    <div class="container"></div>
+    <div class="row contents">
+        <div class="row col-xs-8 col-md-offset-2 col-xs-12">
+            <h3 class="text-center">
+               Une erreur est survenue.<br/>
+                <strong># {{ status_code }} : {{ status_text }} </strong>
+            </h3>
+            <p class="text-center">
+                <a href="{{ path('sylius_shop_homepage') }}">Retourner à l'acceuil.</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
