@@ -14,11 +14,7 @@ parameters:
     secret: EDITME
     locale: fr_FR
     currency: EUR
-    paypal.express_checkout.username: TEST
-    paypal.express_checkout.password: TEST
-    paypal.express_checkout.signature: TEST
-    paypal.express_checkout.sandbox: true
     payum_username: ~
     payum_password: ~
     payum_signature: ~
-
+    paypal.express_checkout.sandbox: false

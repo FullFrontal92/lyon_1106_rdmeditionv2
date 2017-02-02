@@ -33,7 +33,9 @@ date.timezone = Europe/Paris    (around lines 920)
 $ composer install
 ```
 ##### Configure your parameters in the **app/config/parameters.yml**
-##### You can check all parameters need into **/app/config/parameters.yml.dist**
+##### You can check all parameters needed into **/app/config/parameters.yml.dist**
+Ask the clients the mail adress and password for all emails that the application will send, and
+Also the PayPal API credentials : username, password, signature.
 ``` 
 $ npm install
 ```
@@ -72,3 +74,13 @@ Import the data with an inversed dump
  go inside to the sidebar and choose the admin section and create your own admin credentials then delete the test one.
  
  Now configure as you wish the back-office.
+ Start by set the right price of the books already in the database.
+ 
+#### Product management
+
+The carousel on the homepage showcase only 3 books.
+It prioritize :
+The books who had an event, then the books that have stamps.
+
+If you have any question: 
+**aymen.mechiche@gmail.com** , **laurent@wildcodeschool.fr**
