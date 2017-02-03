@@ -12,8 +12,8 @@
 /app/Resources/SyliusShopBundle/views/Facture.pdf
 /web/assets
 /web/bundles
-!/web/media/image
-/web/media
+
+/web/media/cache
 
 
 /bin
