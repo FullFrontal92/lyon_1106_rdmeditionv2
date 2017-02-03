@@ -1,3 +1,4 @@
 sylius:
     ui:
         manage_users_able_to_access_administration_panel: Gérer l'accès au back office des utilisateurs
+        summary_of_your_order: "Résumé de votre commande : n° "

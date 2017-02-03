@@ -2,7 +2,7 @@ parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: ~
-    database_name: sylius
+    database_name: rdm
     database_user: root
     database_password: ~
     # You should uncomment this if you want use pdo_sqlite.
@@ -11,18 +11,10 @@ parameters:
     mailer_host: smtp.gmail.com
     mailer_user: ~
     mailer_password: ~
-    mailer_transport: smtp
-    mailer_host: smtp.gmail.com
-    mailer_user: ~
-    mailer_password:
     secret: EDITME
     locale: fr_FR
     currency: EUR
-    paypal.express_checkout.username: TEST
-    paypal.express_checkout.password: TEST
-    paypal.express_checkout.signature: TEST
-    paypal.express_checkout.sandbox: true
     payum_username: ~
     payum_password: ~
     payum_signature: ~
-
+    paypal.express_checkout.sandbox: false

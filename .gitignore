@@ -9,11 +9,12 @@
 
 /app/config/parameters.yml
 /app/config/*.local.yml
-
+/app/Resources/SyliusShopBundle/views/Facture.pdf
 /web/assets
 /web/bundles
 
-/web/media
+/web/media/cache
+
 
 /bin
 /vendor

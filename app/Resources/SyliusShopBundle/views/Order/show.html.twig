@@ -1,9 +1,9 @@
 {% extends '@SyliusShop/layout.html.twig' %}
 
 {% block content %}
-    <h1 class="ui header">
+    <h1 class="ui header container contents">
         <i class="circular cart icon"></i>
-        <div class="content">
+        <div class="content ">
             {{ 'sylius.ui.summary_of_your_order'|trans }} #{{ order.number }}
             <div class="sub header">
                 <div class="ui horizontal divided list">
@@ -22,8 +22,9 @@
     </h1>
 
     {% set lastNewPayment = order.getLastNewPayment() %}
-
-    {% if order.paymentState not in ['paid', 'cancelled'] %}
-        {{ render(url('sylius_shop_partial_payment_change_method', {'id': lastNewPayment.id} )) }}
-    {% endif %}
+    <div class="container">
+        {% if order.paymentState not in ['paid', 'cancelled'] %}
+            {{ render(url('sylius_shop_partial_payment_change_method', {'id': lastNewPayment.id} )) }}
+        {% endif %}
+    </div>
 {% endblock %}
