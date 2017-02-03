@@ -35,7 +35,10 @@ $ composer install
 ##### Configure your parameters in the **app/config/parameters.yml**
 ##### You can check all parameters needed into **/app/config/parameters.yml.dist**
 Ask the clients the mail adress and password for all emails that the application will send, and
-Also the PayPal API credentials : username, password, signature.
+Also the PayPal API NVP/Soap credentials :
+ - **Username**
+ - **Password**
+ - **Signature**.
 ``` 
 $ npm install
 ```
@@ -67,11 +70,15 @@ Import the data with an inversed dump
 ## Now the project is ready
 ####Run a server
 ```
-> $ php app/console server:start --env=prod
+ $ php app/console server:start --env=prod
 ```
- The first thing to do is to log in with /admin by using the test credentials (test@example.com/test):Id/Pwd
+ The first thing to do is to log in with /admin by using the test credentials :
+  - Id : **test**
+  - Password : **test**
  
- go inside to the sidebar and choose the admin section and create your own admin credentials then delete the test one.
+ Check the menu on the Back office panel, and choose the **Admin** section.
+ **Create** your own admin credentials. Loggount and loggin with your own account just created.
+ **Delete** the test account.
  
  Now configure as you wish the back-office.
  Start by set the right price of the books already in the database.
