@@ -1,0 +1,107 @@
+
+<!-- CAROUSEL on HomePage -->
+
+<div id="carousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+
+        {% set carProducts = [] %}
+        {% set car = [] %}
+        {% set productN = [] %}
+
+        {# Looking for events or stamp on product array, then adding them to carProducts #}
+        {% for product in products %}
+            {% if product.preOrder == true or product.new == true or product.promo == true or product.event is not null %}
+                {% set carProducts = carProducts|merge([product]) %}
+            {% else %}
+                {% set productN = productN|merge([product]) %}
+            {% endif %}
+        {% endfor %}
+
+        {# adding carProduct with event to car #}
+        {% for carProduct in carProducts %}
+            {% if carProduct.event is not null %}
+                {% set car = car|merge([carProduct]) %}
+            {% endif %}
+        {% endfor %}
+
+        {# adding random carProduct with a stamp to car  until car = 3 #}
+        {% for carProduct in carProducts|shuffle %}
+            {% if (carProduct.preOrder == true or carProduct.new == true or carProduct.promo == true) and car|length < 3 %}
+                {% set car = car|merge([carProduct]) %}
+            {% endif %}
+        {% endfor %}
+
+        {% if car < 3 %}
+        { {% for carProduct in productN|shuffle %}
+            {% if car|length < 3 %}
+                {% set car = car|merge([carProduct]) %}
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% for carProduct in car %}
+                <!-- Wrapper for slides -->
+            <div class="item row">
+                <div id="stamper" class="col-xs-4">
+                    {% if carProduct.preOrder == true %}
+                        <p class="stamp col-xs-12">Pré-commande</p>
+                    {% elseif carProduct.new == true %}
+                        <p class="stamp col-xs-12">Nouveauté</p>
+                    {% elseif carProduct.promo == true %}
+                        <p class="stamp col-xs-12">Promotion</p>
+                    {% endif %}
+
+                    <div class="img-container">
+                        <img src="{{ asset("media/image/"~ carProduct.images.snapshot.0.path) }}" alt="Couverture de {{ carProduct.name }} ">
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                    <div class="title-container">
+                        <p class="text_carousel">
+                            <span class="quote">"</span>
+                            {{ carProduct.name }}
+                            <span class="quote">"</span>
+                            <span class="carousel-know-more">
+                        <a href="{{ path('sylius_shop_product_show', {'slug': carProduct.slug}) }}">En savoir +</a>
+                            </span>
+                        </p>
+                        <p class="carousel_event">
+                            {{ carProduct.event }}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

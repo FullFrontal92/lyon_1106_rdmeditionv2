@@ -1,0 +1,13 @@
+{% extends '@SyliusShop/Account/layout.html.twig' %}
+
+{% block breadcrumb %}
+{% endblock %}
+
+{% block subcontent %}
+    <h1 class="ui dividing header contents">
+        {{ 'sylius.ui.order_history'|trans }}
+        <div class="sub header">Consulter vos anciennes commandes</div>
+    </h1>
+
+    {{ sylius_grid_render(resources, '@SyliusShop/Account/Order/Grid/_default.html.twig') }}
+{% endblock %}

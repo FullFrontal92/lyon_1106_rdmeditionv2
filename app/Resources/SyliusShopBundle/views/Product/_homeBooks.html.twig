@@ -1,0 +1,36 @@
+
+
+<!-- List of Books on HOMEPAGE under carousel -->
+
+<h3 class="title_publish container">Récemment publiés</h3>
+<div class="container no-padding container_block_books">
+    <div class="row no-padding">
+        {% for product in products %}
+            <div class="block_global  col-md-4 col-sm-6 col-xs-12">
+                <div class="block_books vertical_center_block">
+                    <a class="block_img text-center col-md-12 col-sm-12 col-xs-4"  href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}">
+                        {% if product.images.snapshot.0.path %}
+                            <img src="{{ asset("media/image/"~ product.images.snapshot.0.path) }}" class="img_book" alt="Couverture de {{ product.name }} ">
+                        {% endif %}
+                    </a>
+                    <div class="block_text col-xs-8 col-md-12 col-sm-12">
+                        <h2>{{ product.name }}</h2>
+                        <h3>{{ product.author }}</h3>
+                        <p class="text_intro">{{ product.description[:75]|raw }} ...</p>
+                        <div class="col-xs-6 block_price">
+                            <h4 class="home_price">{{ product.price|sylius_price }}</h4>
+                        </div>
+                        <div class="block_art col-xs-offset-4 col-xs-8">
+                            {% include 'SyliusShopBundle::Product/Show/CartHomepage/_inventoryHomeBook.html.twig' %}
+                        </div>
+                        <div class="block_btn">
+                            <a class="btn_more" href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}"> En savoir + </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- end block book -->

@@ -1,0 +1,21 @@
+{% block body %}
+    {% autoescape %}
+        <p>
+        Votre commande {{ order.number }} a été passée avec succès. <br/> <br/> Merci pour votre commande !
+        </p>
+{% for payment in order.payments %}
+        <div class="content">
+            <div class="header" id="payment-method">
+                {% if payment.method == "Chèque" %}
+                    <strong>Imprimer et envoyer le Bon de commande et votre Chèque Libellé a l’ordre	de	:<br/>
+                    RDM	Editions SAS.<br/>
+                    54	Rue	Paul	Verlaine<br/>
+                    69100	Villeurbanne<br/>
+                    </strong>
+                {% endif %}
+            </div>
+        </div>
+
+{% endfor %}
+    {% endautoescape %}
+{% endblock %}

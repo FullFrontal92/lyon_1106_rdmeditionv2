@@ -1,0 +1,50 @@
+
+    <div class="container">
+        <table class="bookArray col-xs-12 col-md-10 col-md-offset-1">
+            <!-- shuffle function to get a random list of producst -->
+            {% for product in products|shuffle %}
+                <tr class="row">
+                    <td>
+                        <a class="tableImg" href="{{ path('sylius_shop_product_show', {'slug': product.slug}) }}">
+                            {% if product.preOrder == true %}
+                                <p class="stamp">Pré-commande</p>
+                            {% elseif product.new == true  %}
+                                <p class="stamp">Nouveauté</p>
+                            {% elseif product.promo == true %}
+                                <p class="stamp">Promotion</p>
+                            {% endif %}
+                            {% if product.images.snapshot.0.path %}
+                                <img src="{{ asset("media/image/"~ product.images.snapshot.0.path) }}" class="img_book" alt="Couverture de {{ product.name }}"  data-toggle="modal" data-target="#coverModal">
+                            {% endif %}
+                        </a>
+                    </td>
+                    <td>
+                        <div class="celDescri">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-8 bookTitle">
+                                    <h2>{{ product.name }}</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col-xs-10 col-xs-offset-1 ">
+                                    <p class="bookDescription">{{ product.description[:200]|raw }}...</p>
+                                </div>
+                            </div>
+                            <div class="row price_cart">
+                                <div class="col-xs-6">
+                                    <p class="bookPrice">{{ product.price|sylius_price }}</p>
+                                </div>
+                                <div class="col-xs-3 cartBlock">
+                                    {% include 'SyliusShopBundle::Product/Show/CartOurBooks/_inventoryOurBooks.html.twig' %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a class="btn_more" href="{{ path('sylius_shop_product_show', {'slug': product.slug }) }}">En Savoir +
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>

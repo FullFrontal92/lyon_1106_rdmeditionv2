@@ -1,0 +1,30 @@
+AppBundle\Entity\Product:
+    type: entity
+    table: sylius_product
+    fields:
+        author:
+            type: string
+            lenght: 50
+        promo:
+            type: boolean
+            nullable: true
+        preorder:
+            type: boolean
+            nullable: true
+        new:
+            type: boolean
+            nullable: true
+        releaseDate:
+            type: datetime
+        event:
+            type: string
+            lenght: 255
+            nullable: true
+        facebook:
+            type: string
+            lenght: 255
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]
+        postUpdate: [ postFlush ]

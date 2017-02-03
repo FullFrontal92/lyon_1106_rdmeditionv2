@@ -1,0 +1,196 @@
+.bookArray{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bookArray .tableDescri p {
+    /*text-align: justify;*/
+    margin-bottom: 5px;
+    padding-top: 10px;
+}
+
+.bookArray .bookTitle h2 {
+    margin-top: 0;
+    padding-left: 10px;
+}
+
+.bookArray .relDate p {
+    text-align: right;
+}
+
+.bookArray .tableImg:hover {
+    background-color: silver;
+    cursor: pointer;
+}
+
+.bookArray .tableImg {
+    background-color: #999999;
+    background-image: linear-gradient( 135deg, rgba(255,255,255,0) , rgb(232, 232, 232) , rgba(255,255,255,0) );
+    transition:background-color 0.5s;
+    width: 200px;
+    height: 200px;
+    padding: 5px 0px 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.bookArray .tableImg img {
+    margin: 25px 0px 20px 0px;
+    box-shadow: 5px 5px 5px 0px #656565;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.bookArray tr {
+    border-bottom: solid black 1px;
+}
+.bookArray td {
+    padding: 10px 0px;
+}
+
+.bookArray tr:last-child {
+    border-bottom: none;
+}
+
+.bookArray .btn_more{
+    padding: 2px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    float: right;
+    -webkit-transition: background 0.1s, color 0.3s;
+    -moz-transition: background 0.1s, color 0.3s;
+    -o-transition: background 0.1s, color 0.3s;
+    transition: background 0.3s, color 0.3s;
+}
+
+div #sylius-product-selecting-variant {
+    text-align: center;
+}
+.bookArray .btn_more:hover {
+    background-color: #5d1c43;
+    text-decoration: none;
+    color: white;
+}
+
+.bookArray .celDescri {
+    margin-left: 10px;
+}
+
+.bookDescription {
+    margin-top: 30px!important;
+}
+.priceDescri{
+    padding-bottom: 40px;
+    padding-left: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+    .bookArray .tableImg {
+        background: linear-gradient(135deg, white, white);
+        width: 100px;
+        height: auto;
+        padding-bottom: 260px;
+    }
+
+    .bookArray .tableImg img {
+        margin: 40px 0px 0px 0px;
+        box-shadow: 5px 5px 5px 0px #656565;
+        height: auto;
+        width: auto;
+        display: block;
+    }
+
+    .bookArray .tableDescri {
+        border: hidden;
+        overflow: hidden;
+        font-size: 13px;
+        width: 100%;
+
+    }
+
+    .bookArray .celDescri h2 {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .responsiveCart{
+        padding-top: 20px;
+        padding-left: 20px;
+        width: 200px;
+    }
+
+    .bookquantityhidden{
+        display: none;
+    }
+
+    .priceresponsive{
+        padding-right: 40px;
+        position: absolute;
+    }
+
+    div #sylius-product-selecting-variant {
+        border:none;
+        box-shadow:none;
+        margin-top: 30px;
+    }
+}
+
+    /* Stamp */
+.stamp {
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 1.1em;
+    background-color: #5D1C43;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+}
+
+.bookPrice{
+    text-align: center;
+    margin-top: 50px!important;
+}
+
+@media only screen and (max-width: 900px){
+    .bookArray .bookTitle h2{
+    }
+}
+@media only screen and (max-width: 769px){
+    .bookArray .bookTitle h2{
+        margin-top: -40px;
+    }
+    .stamp {
+        font-size: 1em;
+    }
+
+    img .img_book {
+        margin-top: 50px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .bookArray .bookTitle h2{
+        margin-top: -20px;
+    }
+    .img_book{
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .bookArray .bookTitle h2{
+        margin-top: 0;
+    }
+    .img_book{
+        margin-top: 50px;
+    }
+}

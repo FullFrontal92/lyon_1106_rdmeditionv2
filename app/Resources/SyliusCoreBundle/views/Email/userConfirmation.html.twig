@@ -1,0 +1,7 @@
+{% block subject %}
+    {{ 'sylius.email.user_confirmation.subject'|trans|raw }}
+{% endblock %}
+
+{% block body %}
+    {{ 'sylius.email.user_confirmation.content'|trans({'%username%': user.username})|raw }}
+{% endblock %}

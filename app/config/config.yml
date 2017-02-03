@@ -6,9 +6,9 @@ imports:
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusApiBundle/Resources/config/app/config.yml" }
-
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
+    - { resource: "payum.yml" }
 
 framework:
     translator: { fallbacks: ["%locale%"] }
@@ -44,8 +44,17 @@ doctrine_migrations:
 swiftmailer:
     transport: "%mailer_transport%"
     host: "%mailer_host%"
+    encryption: ssl
+    auth_mode: login
     username: "%mailer_user%"
     password: "%mailer_password%"
+    spool: { type: memory }
+
+ewz_recaptcha:
+    public_key:  6LfsgwoUAAAAANDWpHKY_GtsjsXG7XbDs4eamLSb
+    private_key: 6LfsgwoUAAAAAC3U0zxz8fwq0eBL6vQUG7WXq0Cd
+    # Not needed as "%kernel.default_locale%" is the default value for the locale key
+    locale_key:  %kernel.default_locale%
 
 fos_rest:
     view:
@@ -57,3 +66,40 @@ fos_rest:
         rules:
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
+
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                model: AppBundle\Entity\Product
+                controller: AppBundle\Controller\BookController
+sylius_order:
+    resources:
+        order:
+            classes:
+                model: AppBundle\Entity\Order
+sylius_mailer:
+    sender:
+        name: RDM e-ditions
+        address: "%mailer_user%"
+    emails:
+        order_confirmation:
+            enabled: false
+        recap_to_send:
+            enabled: false
+
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+
+#kpn PDF  parameters
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     wkhtmltopdf
+        options:
+            - { name: 'viewport-size', value: ‘1024x768’ }
+            - { name: 'page-size', value: 'A4' }
