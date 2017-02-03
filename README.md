@@ -22,10 +22,11 @@ $ sudo apt-get install wkhtmltopdf
 ### Configuration of php environment
 You need to set the timezone and memory_limit from the php.ini files.
 
-php.ini files are located into /etc/php/7.0/cli and /etc/php/7.0/apache2 repository
-set:
-memory_limit = -1   (around lines 390)   
-date.timezone = Europe/Paris    (around lines 920)
+php.ini files are located into /etc/php/7.0/cli and /etc/php/7.0/apache2 repository.
+
+Set:
+- memory_limit = -1   (around lines 390)   
+- date.timezone = Europe/Paris    (around lines 920)
 
 ### Dependency installation
         
